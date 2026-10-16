@@ -36,7 +36,11 @@ Verilog·SystemVerilog로 디지털 회로를 설계하고, 시뮬레이션과 F
 | **AXI4-Lite 주변장치·MicroBlaze** | GPIO·Timer·UART·I2C Master IP 구현, AXI 레지스터와 C 제어 연동 | [I2C LCD 출력 · I2C IP FC 90%](https://app.notion.com/p/3d423ec941b78121b0b0fb1912eee9e2) |
 | **UBUS Master–Slave UVM VIP** | Master Agent·Sequence 구현, Slave 환경과 통합, 미도달 조건 보완 | [Transaction·Data Beat·Protocol Covergroup 각 100%](https://app.notion.com/p/3d423ec941b78182aeb4c9d63174fe7d) |
 
-VGA Game Logic은 당시 제어부 검증 기록에서 **Scoreboard 657,780건 PASS / FAIL 0건, Functional Coverage 98.96%**를 확인했습니다. Coverage는 각 프로젝트에서 정의한 DUT·시나리오 범위를 기준으로 하며, 상세 범위는 연결된 검증 설명에 정리했습니다.
+VGA Game Logic의 당시 제어부 검증 결과입니다.
+
+**Scoreboard 657,780건 PASS / FAIL 0건 · Functional Coverage 98.96%**
+
+Coverage는 각 프로젝트에서 정의한 DUT·시나리오 범위를 기준으로 하며, 상세 범위는 연결된 검증 설명에 정리했습니다.
 
 ## 기술 스택
 
