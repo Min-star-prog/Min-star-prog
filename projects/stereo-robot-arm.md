@@ -57,8 +57,8 @@ $$
 
 $$
 \begin{aligned}
-\theta_{roll} &= \frac{180}{\pi}\operatorname{atan2}(f_{person,x}, f_{person,z}) \\
-\theta_{pitch} &= \frac{180}{\pi}\operatorname{atan2}(f_{person,y}, \sqrt{f_{person,x}^{2}+f_{person,z}^{2}})
+\theta_{roll} &= \frac{180}{\pi}\mathrm{atan2}(f_{person,x}, f_{person,z}) \\
+\theta_{pitch} &= \frac{180}{\pi}\mathrm{atan2}(f_{person,y}, \sqrt{f_{person,x}^{2}+f_{person,z}^{2}})
 \end{aligned}
 $$
 
