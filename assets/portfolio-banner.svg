@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="310" viewBox="0 0 1200 310" role="img" aria-label="Min Lee — FPGA and RTL design, SystemVerilog and UVM verification">
+<defs>
+  <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#101E33"/><stop offset="1" stop-color="#172F45"/></linearGradient>
+  <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#8AA2BD" opacity=".14"/></pattern>
+</defs>
+<rect width="1200" height="310" rx="18" fill="url(#bg)"/>
+<rect width="1200" height="310" rx="18" fill="url(#grid)"/>
+<rect x="0" y="44" width="5" height="222" rx="2" fill="#6DE0C3"/>
+<g font-family="Arial, Helvetica, sans-serif">
+  <text x="58" y="62" font-size="14" letter-spacing="3.4" fill="#6DE0C3">MIN LEE / HARDWARE PORTFOLIO</text>
+  <text x="55" y="132" font-size="49" font-weight="700" letter-spacing="-.8" fill="#FFFFFF">FPGA &amp; RTL DESIGN</text>
+  <text x="58" y="179" font-size="26" fill="#C7D6E5">SystemVerilog / UVM Verification</text>
+  <path d="M58 216H696" stroke="#385067"/>
+  <text x="58" y="252" font-size="13" letter-spacing="2.2" fill="#A9BBCD">DESIGN</text>
+  <circle cx="151" cy="247" r="2.5" fill="#6DE0C3"/>
+  <text x="171" y="252" font-size="13" letter-spacing="2.2" fill="#A9BBCD">VERIFY</text>
+  <circle cx="263" cy="247" r="2.5" fill="#6DE0C3"/>
+  <text x="284" y="252" font-size="13" letter-spacing="2.2" fill="#A9BBCD">INTEGRATE</text>
+</g>
+<g fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="891" y="80" width="152" height="152" rx="22" stroke="#41667B"/>
+  <rect x="916" y="105" width="102" height="102" rx="13" fill="#1D3B4E" stroke="#6DE0C3" stroke-width="1.5"/>
+  <path d="M832 113H870V127H916 M801 155H916 M851 204H877V186H916 M1043 113H1082V90H1120 M1018 155H1135 M1043 203H1088V229H1120 M941 80V44 M967 80V32 M993 80V54 M941 232V266 M967 232V280 M993 232V256" stroke="#426A7D" stroke-width="2"/>
+  <path d="M935 164V140H951V164H967V140H983V164H999" stroke="#6DE0C3" stroke-width="3"/>
+  <circle cx="801" cy="155" r="4" fill="#6DE0C3" stroke="none"/>
+  <circle cx="1135" cy="155" r="4" fill="#6DE0C3" stroke="none"/>
+  <circle cx="832" cy="113" r="3" fill="#7198AE" stroke="none"/>
+  <circle cx="1120" cy="229" r="3" fill="#7198AE" stroke="none"/>
+</g>
+</svg>
