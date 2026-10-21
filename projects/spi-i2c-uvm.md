@@ -84,7 +84,7 @@ I2C 시뮬레이션 주소는 `7'h40`으로 고정했습니다. Address Byte와 
 
 - **SPI Master–Slave 연결과 양방향 데이터 경로**
 
-[상세 그림 — Notion](https://app.notion.com/p/3d423ec941b781efae15feac9005b06a#42328f8fa26c4763a3dd42f1c7e41959)
+![ch5 spi diagram](../assets/project-media/ch5_spi_diagram.webp)
 
 | 비교 관계 | 판정 목적 |
 | --- | --- |
@@ -97,7 +97,7 @@ I2C 시뮬레이션 주소는 `7'h40`으로 고정했습니다. Address Byte와 
 
 - **SPI Loopback 파형 — 송신 값과 반대편 수신 값 비교**
 
-[상세 그림 — Notion](https://app.notion.com/p/3d423ec941b781efae15feac9005b06a#2abbc855ba004377bcb60b4613a19239)
+![spi loopback data waveform](../assets/project-media/spi_loopback_data_waveform.webp)
 
 빨간 박스와 화살표는 Master·Slave의 송신 값이 각각 반대편 수신 레지스터로 전달되는 구간을 가리킵니다. 같은 Transaction의 값과 수신 완료 시점을 함께 확인했습니다.
 
@@ -112,7 +112,7 @@ Monitor는 `ss_n=0`에서 송신 값을 저장하고 **SCLK 상승 에지 8회**
 
 - **SPI 구동·Sampling·Scoreboard 전달 시점**
 
-[상세 그림 — Notion](https://app.notion.com/p/3d423ec941b781efae15feac9005b06a#8a410db82e3840ae92f5830e849a4339)
+![spi driver monitor timing](../assets/project-media/spi_driver_monitor_timing.webp)
 
 이 DUT에서 수신 데이터 갱신과 done 발생의 순서를 확인해 Monitor가 완성된 값을 읽도록 맞췄습니다. 현재 DUT의 데이터 갱신 순서에 맞춰 수집 시점을 정했습니다.
 
@@ -129,19 +129,19 @@ Monitor는 `ss_n=0`에서 송신 값을 저장하고 **SCLK 상승 에지 8회**
 
 - **I2C Master–Slave 연결과 Write/Read 데이터 경로**
 
-[상세 그림 — Notion](https://app.notion.com/p/3d423ec941b781efae15feac9005b06a#25daf8845ac344e6b01717b6abe050ad)
+![ch5 i2c diagram](../assets/project-media/ch5_i2c_diagram.webp)
 
 공유 SDA는 Low 구동과 Release로 제어합니다. Write Data에서는 Master가 구동하고 Slave가 수신하며, Slave ACK 구간에는 Master가 SDA를 Release합니다. Read Data에서는 Slave가 구동하고 Master가 수신합니다.
 
 - **I2C Write 파형 — 명령 입력과 Slave RX\_DATA 진입**
 
-[상세 그림 — Notion](https://app.notion.com/p/3d423ec941b781efae15feac9005b06a#2a28688a796e4da8a97e629eb6c4f008)
+![i2c write waveform](../assets/project-media/i2c_write_waveform.webp)
 
 `cmd_write`와 상태 전이, SDA 출력 제어를 함께 관찰했습니다. Address ACK 이후 Data를 보내는 흐름을 구분했습니다.
 
 - **I2C Read 파형 — Master SDA Release와 Slave TX\_DATA 진입**
 
-[상세 그림 — Notion](https://app.notion.com/p/3d423ec941b781efae15feac9005b06a#376f6e0ae7fd4df9b61efeb3e8f3cf2b)
+![i2c read original](../assets/project-media/i2c_read_original.webp)
 
 Master의 `sda_o=1`은 Open-Drain SDA를 Release하는 상태입니다. Read 구간의 공통 SDA는 Slave가 구동하며, Master가 Slave 데이터를 자신의 `sda_o`에 출력하는 구조가 아닙니다.
 
@@ -159,7 +159,7 @@ Master의 `sda_o=1`은 Open-Drain SDA를 Release하는 상태입니다. Read 구
 
 - **I2C Write·Read의 구동·완료·Capture 시점**
 
-[상세 그림 — Notion](https://app.notion.com/p/3d423ec941b781efae15feac9005b06a#4084085c93e64ecea807f481de6a163f)
+![i2c driver monitor timing](../assets/project-media/i2c_driver_monitor_timing.webp)
 
 `cmd_read` 직후에는 수신 데이터가 완성되지 않으므로 결과를 바로 읽지 않았습니다. 명령 발생과 수신 완료 사이를 `pending_read`로 유지하고, Read 완료에서 실제 데이터를 전달했습니다.
 
@@ -172,7 +172,7 @@ Scoreboard는 큐에 저장한 기대값과 실제값의 **동작 종류(ACT\_WR
 
 - **I2C 직렬 파형 — 주소 0x80과 Data 0xBC 구분**
 
-[상세 그림 — Notion](https://app.notion.com/p/3d423ec941b781efae15feac9005b06a#33bd27baee514c4cbf4ca8e623c6ab1f)
+![i2c address data bits](../assets/project-media/i2c_address_data_bits.webp)
 
 `0x80 = 1000_0000`은 `7'h40` 주소에 Write Bit(0)를 붙인 Address Byte입니다. 다음 `0xBC = 1011_1100`은 별도의 Data Byte이며, 각 Byte 뒤에는 ACK 구간이 있습니다.
 
@@ -198,7 +198,7 @@ Master·Slave TX는 `zero / low / mid / high / ff`의 5개 영역으로 나누�
 
 - **SPI Coverage 캡처 — 400회 실행의 95.43%와 미도달 Cross Bin**
 
-[상세 그림 — Notion](https://app.notion.com/p/3d423ec941b781efae15feac9005b06a#ed676bb0ca3e41aeb001b1153b8bac5b)
+![spi coverage bins](../assets/project-media/spi_coverage_bins.webp)
 
 발표 캡처는 400회 실행 시점의 결과입니다. 개별 Data Coverpoint는 도달했지만 Master TX와 Slave TX의 특정 조합은 남아 있어, Cross Bin을 확인하고 해당 조합을 직접 생성했습니다.
 
@@ -222,7 +222,7 @@ Write/Read 동작, 동작별 Data 구간, 단일 Slave 주소를 수집했습니
 
 - **I2C Coverage 캡처 — 100회 실행의 94.44%와 Read zero 미도달**
 
-[상세 그림 — Notion](https://app.notion.com/p/3d423ec941b781efae15feac9005b06a#dd20ddd6ef304b8481b1c1be0e7dc02a)
+![i2c coverage bins](../assets/project-media/i2c_coverage_bins.webp)
 
 100회 실행에서 Read Data의 0 경계값과 연결된 Cross Bin이 남은 것을 확인했습니다. 해당 값을 만드는 Directed Sequence로 보완한 과정을 개발일지에 기록했습니다.
 
@@ -241,19 +241,19 @@ Write/Read 동작, 동작별 Data 구간, 단일 Slave 주소를 수집했습니
 
 - **SPI 기본 실행 로그 — TOTAL 106·PASS 106·FAIL 0**
 
-[상세 그림 — Notion](https://app.notion.com/p/3d423ec941b781efae15feac9005b06a#00138cdbb09d416f8cd9207901a7c123)
+![spi scoreboard 106 pass](../assets/project-media/spi_scoreboard_106_pass.webp)
 
 이 로그의 Functional Coverage는 79.82%입니다. Write 3건·Read 3건과 WR 100회가 포함된 기본 실행 결과이며, WR 500회 또는 Directed 보완 실행과 구분합니다.
 
 - **I2C 기본 실행 로그 — TOTAL 206·PASS 206·FAIL 0**
 
-[상세 그림 — Notion](https://app.notion.com/p/3d423ec941b781efae15feac9005b06a#4a754f5d73d24ef68a7764168e87baba)
+![i2c scoreboard 206 pass](../assets/project-media/i2c_scoreboard_206_pass.webp)
 
 이 로그의 Functional Coverage는 94.44%입니다. Write 3건·Read 3건과 WR 100회의 Write/Read 각 1건을 합친 **206개 동작 비교** 결과입니다. WR 200회·Coverage 100%와는 별도 실행입니다.
 
 - **기존 Functional Coverage 요약 자료**
 
-[상세 그림 — Notion](https://app.notion.com/p/3d423ec941b781efae15feac9005b06a#ad2c3ceb49534fb589833be9fe34fdf6)
+![ch5 coverage](../assets/project-media/ch5_coverage.webp)
 
 PASS 건수는 Scoreboard의 비교 단위, Coverage는 정의한 기능 Bin의 도달 정도입니다. 각 로그의 실행 조건에 맞춰 두 결과를 함께 해석합니다.
 
@@ -277,7 +277,7 @@ PASS 건수는 Scoreboard의 비교 단위, Coverage는 정의한 기능 Bin의 
 
 - **SPI 오류 로그와 SS\_n 이벤트 처리 수정 지점**
 
-[상세 그림 — Notion](https://app.notion.com/p/3d423ec941b781efae15feac9005b06a#19d04be301544552b5fbe665e4f2b169)
+![spi ssn before after](../assets/project-media/spi_ssn_before_after.webp)
 
 최종 첨부 RTL의 MOSI 수신부는 `posedge sclk or posedge ss_n`, MISO 송신부는 `negedge sclk or posedge ss_n or negedge ss_n` 이벤트를 사용합니다. 선택 시 첫 Bit 준비, SCLK에 따른 Shift, 해제 시 초기화의 역할을 구분했습니다.
 
@@ -306,13 +306,13 @@ Master·Slave FND 표시를 통한 I2C 데이터 전달 확인
 
 - **SPI 실물 연결과 Logic Analyzer — 전송 데이터 84**
 
-[상세 그림 — Notion](https://app.notion.com/p/3d423ec941b781efae15feac9005b06a#8941a2d9122a40938f4114616a361799)
+![spi fpga logic analyzer](../assets/project-media/spi_fpga_logic_analyzer.webp)
 
 실물 시연의 FND 값과 직렬 버스에서 측정한 값을 대응시켰습니다. SCLK Sampling과 MOSI·MISO, Slave Select 구간을 함께 관찰했습니다.
 
 - **I2C 실물 연결과 Logic Analyzer — 주소 55·Data 14**
 
-[상세 그림 — Notion](https://app.notion.com/p/3d423ec941b781efae15feac9005b06a#5322654f7d1b4c3e8620696d31619d71)
+![i2c fpga logic analyzer](../assets/project-media/i2c_fpga_logic_analyzer.webp)
 
 이 실물 예시는 **7비트 주소 55와 Data 14**를 사용합니다. UVM Loopback의 주소 `7'h40`과는 별도의 설정이며, 7비트 주소·R/W Bit로 구성된 첫 Byte와 뒤따르는 Data Byte를 구분해 확인했습니다.
 

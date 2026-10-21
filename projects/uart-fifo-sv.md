@@ -79,7 +79,7 @@ Class별 역할과 Mailbox·Event의 연결을 직접 구성하며, 입력 생�
 
 - **UART·FIFO·ASCII Decoder 통합 Schematic**
 
-[상세 그림 — Notion](https://app.notion.com/p/3d423ec941b781a4b293d7d2a599bd54#22210827f11d41f5b1618e481456626c)
+![ch4 schematic](../assets/project-media/ch4_schematic.webp)
 
 UART·FIFO Loopback과 UART·FIFO·Decoder는 서로 다른 DUT 구성입니다. TX 복원값 비교와 Decoder 출력 비교를 각각의 검증 경로에 맞춰 수행했습니다.
 
@@ -101,25 +101,25 @@ UART·FIFO Loopback과 UART·FIFO·Decoder는 서로 다른 DUT 구성입니다.
 - **Random Test:** Push·Pop·8비트 데이터를 100회 Random으로 생성해 데이터 출력 순서를 비교했습니다.
 - **FIFO Push Only 파형 — 16회 입력 후 Full 활성화**
 
-[상세 그림 — Notion](https://app.notion.com/p/3d423ec941b781a4b293d7d2a599bd54#ffcef65a6039429493712b17726fc988)
+![sv fifo push full](../assets/project-media/sv_fifo_push_full.webp)
 
 Write Pointer의 순환과 Full 전이, Console의 Push Only 통과 결과를 함께 확인했습니다.
 
 - **FIFO Pop Only 파형 — 저장 순서와 Empty 전이**
 
-[상세 그림 — Notion](https://app.notion.com/p/3d423ec941b781a4b293d7d2a599bd54#050e06554bc54d01bd41470d048cb775)
+![sv fifo pop empty](../assets/project-media/sv_fifo_pop_empty.webp)
 
 저장된 바이트가 입력 순서대로 출력되고 Read Pointer가 Write Pointer에 도달하면 Empty가 활성화되는 것을 확인했습니다.
 
 - **FIFO Random Push/Pop 파형 — Queue 모델과 데이터 비교**
 
-[상세 그림 — Notion](https://app.notion.com/p/3d423ec941b781a4b293d7d2a599bd54#24158b26fad04dfa8edf587028961269)
+![sv fifo random](../assets/project-media/sv_fifo_random.webp)
 
 Random 제어 입력에서 Pop 데이터와 Reference Model의 기대값을 비교했습니다. 아래 결과 로그에서 유효 비교 건수와 최종 집계를 확인할 수 있습니다.
 
 - **FIFO Push/Pop 동작 파형**
 
-[상세 그림 — Notion](https://app.notion.com/p/3d423ec941b781a4b293d7d2a599bd54#f63b0bf56a1645ad874e50e7d4ddf1b1)
+![ch4 fifo test](../assets/project-media/ch4_fifo_test.webp)
 
 </details>
 
@@ -142,7 +142,7 @@ FIFO Monitor는 Clock의 하강 엣지에서 입력·출력·상태를 수집했
 
 - **FIFO Scoreboard 결과 — Total 137 / PASS 66 / FAIL 0**
 
-[상세 그림 — Notion](https://app.notion.com/p/3d423ec941b781a4b293d7d2a599bd54#10ba508aacf44e30a25a1d01d3f9405e)
+![sv fifo random log](../assets/project-media/sv_fifo_random_log.webp)
 
 Total은 관측 건수, PASS는 유효한 Pop 데이터 비교 횟수입니다. 화면의 Queue 삽입·출력 코드와 함께 집계 기준을 표시했습니다.
 
@@ -175,13 +175,13 @@ end
 
 - **UART RX 파형 — LSB First 수신과 0x4C 복원**
 
-[상세 그림 — Notion](https://app.notion.com/p/3d423ec941b781a4b293d7d2a599bd54#f60f4615a13f4cc7b970933528e80d8a)
+![sv uart rx](../assets/project-media/sv_uart_rx.webp)
 
 Start 이후 데이터 비트가 Shift Register에 반영되고 rx\_done 시점에 병렬 바이트가 완성되는 것을 확인했습니다.
 
 - **UART TX 파형 — 0x4C의 직렬 전송**
 
-[상세 그림 — Notion](https://app.notion.com/p/3d423ec941b781a4b293d7d2a599bd54#e20447466b914a738e08e323602c36eb)
+![sv uart tx](../assets/project-media/sv_uart_tx.webp)
 
 TX 데이터가 Start·Data·Stop 순서로 나가며, 비트 중앙에서 재구성한 바이트가 원본과 일치하는지 비교했습니다.
 
@@ -198,13 +198,13 @@ UART 수신 완료 데이터를 RX FIFO에 저장하고, RX FIFO 출력이 TX FI
 
 - **UART·FIFO 통합 검증 파형**
 
-[상세 그림 — Notion](https://app.notion.com/p/3d423ec941b781a4b293d7d2a599bd54#2abe515bd045456795267ed7ca55b98f)
+![ch4 integrated waveform](../assets/project-media/ch4_integrated_waveform.webp)
 
 파형에서는 RX 수신 완료·FIFO Push/Pop·TX 시작 신호를 시간 순서로 확인했습니다. Testbench는 Generator 원본, `rx_data`, TX 직렬 복원값을 비교하며, FIFO 경로의 내부 신호는 파형으로 대조했습니다.
 
 - **UART·FIFO 데이터 전달 파형 — RX FIFO에서 UART TX까지**
 
-[상세 그림 — Notion](https://app.notion.com/p/3d423ec941b781a4b293d7d2a599bd54#318fff6254aa47a089a9cbd21984f800)
+![sv uart fifo path](../assets/project-media/sv_uart_fifo_path.webp)
 
 원본의 ①\~③ 표시로 UART RX → RX FIFO, RX FIFO → TX FIFO, TX FIFO → UART TX의 연결 시점을 구분했습니다.
 
@@ -234,7 +234,7 @@ UART 단독 Loopback 로그와 FIFO를 포함한 통합 경로 파형을 구분�
 
 - **UART·FIFO·Decoder 통합 파형 — 명령 전달과 제어 출력**
 
-[상세 그림 — Notion](https://app.notion.com/p/3d423ec941b781a4b293d7d2a599bd54#07274f22b1b14ef6b65612e706f299be)
+![sv decoder waveform](../assets/project-media/sv_decoder_waveform.webp)
 
 수신 바이트가 FIFO에서 Decoder로 전달되는 과정과 해당 명령의 제어 출력이 생성되는 시점을 확인했습니다.
 
@@ -278,7 +278,7 @@ Scoreboard는 `rx_data`와 `pop_data`를 원본 바이트에 비교하고, Decod
 
 - **Monitor Sampling 수정 전·후 — 관측 시점 조정과 PASS 확인**
 
-[상세 그림 — Notion](https://app.notion.com/p/3d423ec941b781a4b293d7d2a599bd54#3c8a1489c45d4739b61cd483fb05e286)
+![sv race condition before after](../assets/project-media/sv_race_condition_before_after.webp)
 
 DUT 갱신 이전에 Capture하던 경로에 1 ns 지연을 적용하고, 수정 전 FAIL과 수정 후 PASS 로그를 대조했습니다.
 
@@ -306,13 +306,13 @@ DUT 갱신 이전에 Capture하던 경로에 1 ns 지연을 적용하고, 수정
 
 - **UART Loopback Console — 10건 PASS / 0건 FAIL**
 
-[상세 그림 — Notion](https://app.notion.com/p/3d423ec941b781a4b293d7d2a599bd54#f3266a7d362243ecba1d597a59754bfc)
+![sv uart loopback log](../assets/project-media/sv_uart_loopback_log.webp)
 
 각 바이트의 Generator 원본, RX 수신값, TX 직렬 복원값을 비교한 실행 결과입니다.
 
 - **UART·FIFO·Decoder Console — 10건 PASS / 0건 FAIL**
 
-[상세 그림 — Notion](https://app.notion.com/p/3d423ec941b781a4b293d7d2a599bd54#8f159b39668a4dc5be8b48ba32590680)
+![sv decoder log](../assets/project-media/sv_decoder_log.webp)
 
 원본 바이트·UART 수신값·FIFO 출력과 Decoder의 기대 출력·상태를 비교한 최종 실행 결과입니다.
 

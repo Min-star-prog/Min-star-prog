@@ -13,9 +13,13 @@
 
 **측정 시료와 위치**
 
-[상세 그림 — Notion](https://app.notion.com/p/3ff23ec941b78149a545f3218597a1a7#a9cf9fd0feec4da387e5725bffb59ac8)
+![adrc measurement positions](../assets/project-media/adrc_measurement_positions.webp)
 
 시료 영역·광학 이미지·개별 소자 위치를 구분해 측정 결과 관리
+
+**측정 대상 TFT 구조**
+
+![측정 대상 c-IGZO TFT 구조](../assets/project-media/adrc_device_structure.webp)
 
 <details>
 <summary>소자 구조·측정 위치 확인</summary>
@@ -27,8 +31,6 @@ ZnO·IGZO 계열 산화물 TFT와 MgZrOx Gate Insulator를 사용한 시료를 �
 측정 위치 사진과 광학 이미지를 사용해 시료·영역·채널 크기를 기록하고, 서로 다른 위치의 곡선을 혼동하지 않도록 식별자를 유지했습니다.
 
 **측정 대상 c-IGZO TFT 구조·제작 배경**
-
-[상세 그림 — Notion](https://app.notion.com/p/3ff23ec941b78149a545f3218597a1a7#110e80c2265646ffa166fb50fbf04c5f)
 
 연구실에서 제작한 측정 시료의 소자 구조·제작 조건
 
@@ -129,7 +131,7 @@ MgZrOx Gate Insulator를 사용한 IGZO TFT에서 정·역방향 Sweep에 따른
 
 **IGZO 1차·2차 시료 비교**
 
-[상세 그림 — Notion](https://app.notion.com/p/3ff23ec941b78149a545f3218597a1a7#f03e582cda204222b36d1991a7d6b58d)
+![adrc sample comparison](../assets/project-media/adrc_sample_comparison.webp)
 
 Memory Window·Ioff 비교와 Transfer 기울기 변화를 정리한 원본입니다. 샘플 간 비교 결과로 제시합니다.
 
@@ -146,7 +148,7 @@ Memory Window·Ioff 비교와 Transfer 기울기 변화를 정리한 원본입�
 
 **c-IGZO 1차 시료 그룹별 특성 요약**
 
-[상세 그림 — Notion](https://app.notion.com/p/3ff23ec941b78149a545f3218597a1a7#cee6dcf473994b8780272c263c957675)
+![adrc cigzo summary](../assets/project-media/adrc_cigzo_summary.webp)
 
 W/L과 측정 지점 수를 구분해 이동도·문턱전압·SS·히스테리시스 등을 정리했습니다.
 
@@ -192,7 +194,7 @@ W/L과 측정 지점 수를 구분해 이동도·문턱전압·SS·히스테리�
 
 **주사 시간별 비교 결과**
 
-[상세 그림 — Notion](https://app.notion.com/p/3ff23ec941b78149a545f3218597a1a7#9526b11034e244c1a99f4c28edea6257)
+![adrc scan speed](../assets/project-media/adrc_scan_speed.webp)
 
 동일한 조건 변화에도 샘플별 Memory Window 변화 방향이 다름을 관찰
 

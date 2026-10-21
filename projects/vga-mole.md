@@ -15,7 +15,7 @@
 
 **실제 게임 화면 · 약 16초 시연**
 
-[시연 영상 — Notion](https://app.notion.com/p/3d423ec941b7818cb683c61e69531362#3dc23ec941b780ea844cc3e1ced7b424)
+[시연 영상](../assets/project-media/mole-demo.mp4)
 
 두더지 등장·망치 이동과 타격·점수 변화 확인
 
@@ -28,7 +28,7 @@
 
 **전체 블록 다이어그램**
 
-[상세 그림 — Notion](https://app.notion.com/p/3d423ec941b7818cb683c61e69531362#3edc84ab3b774a2ab45ce369c15f0c80)
+![chapter1 diagram1](../assets/project-media/chapter1_diagram1.webp)
 
 키보드 입력·등장 제어·영상 타이밍을 화면 합성 경로에 연결
 
@@ -47,7 +47,7 @@
 
 **게임 화면 배치와 좌표**
 
-[상세 그림 — Notion](https://app.notion.com/p/3d423ec941b7818cb683c61e69531362#1e6674d1ca2c47e4a6ab8199d41763ff)
+![mole layout](../assets/project-media/mole_layout.webp)
 
 3×3 두더지 영역과 오른쪽 STAGE·POINT 표시 영역을 나눈 원본 좌표 설계입니다.
 
@@ -62,7 +62,7 @@ BACKGROUND는 기본 배경색을 출력하고, 오른쪽 정보 영역을 별�
 
 **BACKGROUND의 좌표별 배경색 생성**
 
-[상세 그림 — Notion](https://app.notion.com/p/3d423ec941b7818cb683c61e69531362#542cabbdf2be477baf23131e4e2edf59)
+![mole background](../assets/project-media/mole_background.webp)
 
 화면 좌표 조건에 따라 배경과 정보 표시 영역의 RGB를 생성하는 구현 자료입니다.
 
@@ -79,7 +79,7 @@ BACKGROUND는 기본 배경색을 출력하고, 오른쪽 정보 영역을 별�
 
 **화면 요소의 RGB 선택과 앞단 영상 전달**
 
-[상세 그림 — Notion](https://app.notion.com/p/3d423ec941b7818cb683c61e69531362#63bc03530cec423096919b3ca76ae9a8)
+![mole rgb](../assets/project-media/mole_rgb.webp)
 
 망치·NEXT·CLEAR 등 각 이미지의 색을 선택하고 나머지 영역은 이전 단계 RGB를 전달하는 구현 자료입니다.
 
@@ -101,7 +101,7 @@ BACKGROUND는 기본 배경색을 출력하고, 오른쪽 정보 영역을 별�
 
 **상대 좌표·ROM 주소·등장 타이머**
 
-[상세 그림 — Notion](https://app.notion.com/p/3d423ec941b7818cb683c61e69531362#873b3c6355db42ba9a2441725c4bdc9a)
+![mole rom](../assets/project-media/mole_rom.webp)
 
 두더지 원점 기준 좌표에서 하위 2bit를 제외해 ROM 주소를 만드는 방식과 등장 주기 제어를 정리한 자료입니다.
 
@@ -126,7 +126,7 @@ assign ADD_M10 = {VD1[7:2], HD1[7:2]};
 
 **스테이지별 SPEED와 화면 요소 선택**
 
-[상세 그림 — Notion](https://app.notion.com/p/3d423ec941b7818cb683c61e69531362#dbedd797f9d4406bbbec2b01be0b50f7)
+![mole speed](../assets/project-media/mole_speed.webp)
 
 스테이지에 따른 SPEED 값과 망치·스테이지·점수·안내 화면 선택 조건을 정리한 자료입니다.
 
@@ -136,7 +136,7 @@ SPEED는 두더지 애니메이션과 등장 주기를 조절하는 내부 파�
 
 **100점 도달 후 NEXT STAGE 표시**
 
-[상세 그림 — Notion](https://app.notion.com/p/3d423ec941b7818cb683c61e69531362#091e35ad98294fee87f775e49a36645d)
+![mole stage](../assets/project-media/mole_stage.webp)
 
 점수·스테이지 제어 코드와 실제 모니터의 NEXT STAGE·POINT 100 화면이 포함된 발표자료입니다.
 
@@ -151,7 +151,7 @@ MUX\_START는 시작 전 START 이미지를 표시하고, 시작 후에는 앞�
 
 **MUX\_START의 시작 화면 제어**
 
-[상세 그림 — Notion](https://app.notion.com/p/3d423ec941b7818cb683c61e69531362#1a6c665d006842a2932b00ca61fcdd36)
+![mole start](../assets/project-media/mole_start.webp)
 
 SPACE 입력에 따른 시작 상태와 START 이미지의 화면 배치를 설명한 자료입니다.
 
@@ -166,7 +166,7 @@ SPACE 입력으로 시작 상태를 바꾸고, 이미지 원점과 ROM 주소를
 
 **두더지 높이에 따른 타격 영역**
 
-[상세 그림 — Notion](https://app.notion.com/p/3d423ec941b7818cb683c61e69531362#cea4abf8e18a4867841df871c5715fce)
+![mole bounds](../assets/project-media/mole_bounds.webp)
 
 단계별 노출 높이와 망치 위치를 좌표 비교 조건에 반영
 
@@ -203,7 +203,7 @@ NewKB와 키 값을 받아 망치의 기준 좌표 HAM\_H·HAM\_V를 갱신하�
 
 **키보드 입력에 따른 망치 좌표 갱신**
 
-[상세 그림 — Notion](https://app.notion.com/p/3d423ec941b7818cb683c61e69531362#102ed319d5bb4d0db5631d5a8e121003)
+![mole keyboard](../assets/project-media/mole_keyboard.webp)
 
 W·A·S·D 스캔 코드와 NewKB를 이용해 망치 좌표를 30 pixel씩 갱신한 구현 자료입니다.
 
@@ -213,7 +213,7 @@ ENTER 입력에 따라 망치의 일반 자세와 타격 자세를 바꿔 표시
 
 **타격 전·후 망치 이미지와 판정 영역**
 
-[상세 그림 — Notion](https://app.notion.com/p/3d423ec941b7818cb683c61e69531362#76752e1bb4e94f24b24d5d638e1fd4b0)
+![mole hammer](../assets/project-media/mole_hammer.webp)
 
 망치 자세에 따른 직사각형 타격 영역 설정
 
@@ -228,13 +228,13 @@ HIT·ONHIT·NONCNT 연결과 점수 갱신 조건을 보여주는 당시 구현 
 
 **ONHIT·NONCNT 득점 조건**
 
-[상세 그림 — Notion](https://app.notion.com/p/3d423ec941b7818cb683c61e69531362#31d4a6ff7c0a482ebae001cf7b8b13b6)
+![mole score problem](../assets/project-media/mole_score_problem.webp)
 
 타격 입력과 등장 주기별 득점 조건을 설명한 원본 발표자료
 
 **ENTER 입력과 ONHIT 제어**
 
-[상세 그림 — Notion](https://app.notion.com/p/3d423ec941b7818cb683c61e69531362#d93a55a9b3b94779a12534b20ae2a68a)
+![mole hit control](../assets/project-media/mole_hit_control.webp)
 
 유효 타격 위치에서 ONHIT를 갱신하고 점수 조건에 연결하는 구현
 

@@ -71,7 +71,7 @@ Decoder 단위 검증에서는 ASCII 문자를 1클럭씩 인가해 R/L/U/D/S �
 
 - **ASCII Decoder 파형 — 명령별 제어 출력과 M/T 상태 변화**
 
-[상세 그림 — Notion](https://app.notion.com/p/3dc23ec941b7811f8fe9c1f251297953#d1eb723f952244609570cd078c9acf26)
+![uart decoder waveform](../assets/project-media/uart_decoder_waveform.webp)
 
 단위 Testbench의 1클럭 자극에서는 제어 출력이 펄스로 나타납니다. 실제 FIFO 연결에서는 **유효한 새 바이트인지 판별하는 valid 조건이 필요**하며, 이 조건이 빠진 연속 명령 문제는 아래의 남은 이슈에 기록했습니다.
 
@@ -121,19 +121,19 @@ Testbench에서 시작 신호와 Echo를 인가하고, `c_state`, `tick_us_cnt_r
 
 - **Trigger 생성 파형 — 카운터 0\~10 계수 후 START → WAIT**
 
-[상세 그림 — Notion](https://app.notion.com/p/3dc23ec941b7811f8fe9c1f251297953#1074b846dc9e4dc984f0c84efe06a8e2)
+![sr04 trigger start](../assets/project-media/sr04_trigger_start.webp)
 
 START에서 Trigger를 유지하고 1 μs Tick을 11회 세어 약 11 μs의 Trigger 구간을 만들었습니다. 카운터가 10인 Tick에서 Trigger를 Low로 내리고 WAIT로 전이하는 것을 확인했습니다.
 
 - **Echo 응답 파형 — WAIT → RESPONSE와 측정 카운터 초기화**
 
-[상세 그림 — Notion](https://app.notion.com/p/3dc23ec941b7811f8fe9c1f251297953#39396d92435e4fe49e801d7e7bb27e06)
+![sr04 echo response](../assets/project-media/sr04_echo_response.webp)
 
 WAIT에서 Echo High를 Tick 시점에 감지하면 RESPONSE로 전이하고 카운터를 0으로 초기화해 Echo 폭 측정을 시작했습니다.
 
 - **거리 환산 파형 — Echo 종료 후 distance = 344 cm 갱신**
 
-[상세 그림 — Notion](https://app.notion.com/p/3dc23ec941b7811f8fe9c1f251297953#7c2b7afc246548bea927b97ac4186242)
+![sr04 distance update](../assets/project-media/sr04_distance_update.webp)
 
 Echo가 Low로 내려오면 계수값을 58로 나눠 거리 레지스터에 저장하고 IDLE로 복귀했습니다. 제시한 파형에서는 카운터 19,999를 나눈 정수 결과인 **344 cm**가 출력되는 것을 확인했습니다.
 
@@ -149,11 +149,11 @@ Echo가 Low로 내려오면 계수값을 58로 나눠 거리 레지스터에 저
 
 - **무응답 Timeout 파형 — 약 30 ms 대기 후 IDLE 복귀**
 
-[상세 그림 — Notion](https://app.notion.com/p/3dc23ec941b7811f8fe9c1f251297953#7d16552c26cb4abfaab4ab925d0dcc75)
+![sr04 no echo timeout](../assets/project-media/sr04_no_echo_timeout.webp)
 
 - **Echo High 지속 파형 — 약 23.2 ms 측정 한도에서 Timeout**
 
-[상세 그림 — Notion](https://app.notion.com/p/3dc23ec941b7811f8fe9c1f251297953#d5ab534fdbe9400aa9dce053667f55cb)
+![sr04 high timeout](../assets/project-media/sr04_high_timeout.webp)
 
 Timeout 경로에서는 거리 레지스터에 이전 값이 남을 수 있으므로, 숫자만으로 정상 측정 여부를 판단하지 않고 `timeout`을 함께 표시부에 전달했습니다. Timeout은 다음 측정 시작 시 해제합니다.
 
@@ -170,7 +170,7 @@ Timeout 경로에서는 거리 레지스터에 이전 값이 남을 수 있으�
 
 - **SR04 WAIT 로직 수정 전·후 — 무응답 Timeout 분기 추가**
 
-[상세 그림 — Notion](https://app.notion.com/p/3dc23ec941b7811f8fe9c1f251297953#68603cd4ae984a8e83a1b669692fb809)
+![sr04 timeout fix](../assets/project-media/sr04_timeout_fix.webp)
 
 </details>
 
@@ -208,7 +208,7 @@ flowchart TD
 
 - **모드별 ASCII 선택 파형 — Stopwatch와 온도 출력 전환**
 
-[상세 그림 — Notion](https://app.notion.com/p/3dc23ec941b7811f8fe9c1f251297953#233ef88ed59f4f65ad4dbf5e264ab164)
+![uart mode ascii labels](../assets/project-media/uart_mode_ascii_labels.webp)
 
 현재 RTL은 문자 레지스터를 매 클럭 갱신하므로, 송신 중 데이터 일관성과 연속 S 요청 처리는 미해결 항목입니다.
 
@@ -221,19 +221,19 @@ flowchart TD
 
 - **UART RX → Decoder 파형 — R(0x52) 수신 후 제어 출력**
 
-[상세 그림 — Notion](https://app.notion.com/p/3dc23ec941b7811f8fe9c1f251297953#31c171b2b102411ea9f2acd60ffc70e1)
+![uart rx decode](../assets/project-media/uart_rx_decode.webp)
 
 R의 ASCII 코드는 `8'h52`입니다. 프레임은 Start(0), 데이터 8비트, Stop(1)로 구성되며 데이터는 LSB부터 전송됩니다.
 
 - **Sender 바이트 주기 파형 — 9600 bps에서 약 1.042 ms 간격**
 
-[상세 그림 — Notion](https://app.notion.com/p/3dc23ec941b7811f8fe9c1f251297953#3e0edb06ff92492c9ac5b3fa7c4aa60a)
+![uart sender byte timing](../assets/project-media/uart_sender_byte_timing.webp)
 
 9600 bps의 8N1 전송은 1바이트당 총 10비트를 사용하므로 `10 / 9600 ≈ 1.04167 ms`가 필요합니다. 파형에서는 문자와 push가 약 1.04159 ms 간격으로 출력되는 것을 확인했습니다.
 
 - **Sender → UART TX 파형 — s(0x73)의 LSB first 전송**
 
-[상세 그림 — Notion](https://app.notion.com/p/3dc23ec941b7811f8fe9c1f251297953#8b334f1a8004432a887c99c0dae95b64)
+![uart sender tx lsb](../assets/project-media/uart_sender_tx_lsb.webp)
 
 `s = 8'h73 = 01110011[7:0]`이며, 직렬 데이터 비트의 시간 순서는 `11001110`입니다. 병렬 바이트 값과 직렬 전송 순서를 구분해 파형을 대조했습니다.
 
@@ -261,7 +261,7 @@ Stopwatch/Watch의 시간 출력과 DHT11·SR04 데이터를 공통 Display 경�
 
 **UART Watch·Sensor 통합 시연 영상 — PC 명령 제어와 보드 출력**
 
-[시연 영상 — Notion](https://app.notion.com/p/3dc23ec941b7811f8fe9c1f251297953#afa9a4a1e54d4cb48752f2cf86440090)
+[시연 영상](../assets/project-media/uart-watch-sensor-demo.mp4)
 
 Stopwatch 동작·표시 고정, Watch 전환·시간 조정, 온습도·거리·범위 밖 상태 표시 시연
 
@@ -270,7 +270,7 @@ Stopwatch 동작·표시 고정, Watch 전환·시간 조정, 온습도·거리�
 
 - **SR04 보드 결과 — 정상 거리와 범위 밖 상태의 FND 표시**
 
-[상세 그림 — Notion](https://app.notion.com/p/3dc23ec941b7811f8fe9c1f251297953#feacb2334cfd4330b636127568fdb6af)
+![sr04 board distance result](../assets/project-media/sr04_board_distance_result.webp)
 
 | 확인 항목 | 확인한 결과 |
 | --- | --- |

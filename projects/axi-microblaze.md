@@ -273,19 +273,19 @@ Functional Coverage는 위 Coverpoint와 Master 단독 환경 기준입니다.
 
 - **AXI 레지스터 Write 및 I2C 명령 발생 파형**
 
-[상세 그림 — Notion](https://app.notion.com/p/3d423ec941b78121b0b0fb1912eee9e2#b9664717c35c406ebee19fccd1532c33)
+![axi register refined](../assets/project-media/axi_register_refined.webp)
 
 세로 박스로 표시한 구간에서 AW·W 채널의 VALID/READY Handshake, B 채널 응답과 `cmd_write` 펄스를 함께 확인했습니다. TDR에 송신 데이터를 기록한 뒤 CR에 WRITE 명령을 쓰면 I2C Master의 전송 동작으로 연결됩니다.
 
 - **I2C Write 데이터 전송 파형**
 
-[상세 그림 — Notion](https://app.notion.com/p/3d423ec941b78121b0b0fb1912eee9e2#7b9980504b5841fd988bc5b1d3d91f2a)
+![i2c write refined](../assets/project-media/i2c_write_refined.webp)
 
 두 박스는 직렬 전송 구간과 송신 데이터 레지스터를 표시합니다. 송신값 `0x25 (0010 0101)`가 SDA에 MSB부터 출력되는지 확인했습니다. 8비트 이후 9번째 클록은 Slave 미연결 조건으로 NACK이 관찰되며, 파형에는 이어지는 Read 명령 구간도 포함되어 있습니다.
 
 - **I2C Read 및 Master NACK 파형**
 
-[상세 그림 — Notion](https://app.notion.com/p/3d423ec941b78121b0b0fb1912eee9e2#44df7ffb67f74bef9e06bf12b0759be8)
+![i2c read refined](../assets/project-media/i2c_read_refined.webp)
 
 SCL·SDA의 큰 박스는 8비트 수신 구간, 오른쪽 작은 박스는 9번째 NACK, 아래 박스는 RX\_DATA 값을 표시합니다. SDA를 Release한 상태에서 Pull-Up에 의해 `0xFF (1111 1111)`를 수신하고, `ACK_IN=1`에 따라 Master NACK을 출력하는 구간을 확인했습니다. 9번째 NACK은 데이터와 구분되는 응답 비트입니다. 실제 Slave의 다양한 Read 데이터 응답은 후속 검증 범위로 남겼습니다.
 

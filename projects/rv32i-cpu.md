@@ -108,7 +108,7 @@ Immediate Generator는 I·S 형식의 12비트 상수를 부호 확장하고, B�
 
 - **R-Type 연산 및 Register File 저장 파형**
 
-[상세 그림 — Notion](https://app.notion.com/p/3d423ec941b7815d9825ccf432bcf0bf#95179c462b324cca92d442b1375ffb51)
+![cpu alu waveform](../assets/project-media/cpu_alu_waveform.webp)
 
 목적 레지스터에 저장된 값으로 연산 결과를 확인했습니다. 동일한 비트 패턴도 Signed/Unsigned 해석에 따라 비교 결과가 달라지고, SRL과 SRA는 상위 비트를 채우는 방식이 다름을 확인했습니다. I-Type은 Immediate를 선택해 같은 연산 경로를 검증했습니다.
 
@@ -131,7 +131,7 @@ Store는 SB·SH·SW에 대해 주소 Offset과 저장 위치를 확인했습니�
 
 - **Load 접근 주소·데이터 선택·확장 결과 파형**
 
-[상세 그림 — Notion](https://app.notion.com/p/3d423ec941b7815d9825ccf432bcf0bf#7ea34934a7aa4d3b9a5c38fc623ab808)
+![cpu load waveform](../assets/project-media/cpu_load_waveform.webp)
 
 </details>
 
@@ -148,7 +148,7 @@ Store는 SB·SH·SW에 대해 주소 Offset과 저장 위치를 확인했습니�
 
 - **Branch 비교 결과와 PC 변화 파형**
 
-[상세 그림 — Notion](https://app.notion.com/p/3d423ec941b7815d9825ccf432bcf0bf#6a4bb5a82ea7471f924bb502430f4048)
+![cpu branch waveform](../assets/project-media/cpu_branch_waveform.webp)
 
 Immediate를 8로 둔 시나리오에서 조건이 성립하면 PC가 8만큼, 불성립하면 4만큼 증가하는지 확인했습니다. 같은 0xFFFF\_FFFF와 1을 비교해 BLT와 BLTU의 Signed/Unsigned 차이도 확인했습니다.
 
@@ -218,7 +218,7 @@ main의 배열 24바이트, 변수 a 4바이트, ra·s0 8바이트를 합하면 
 
 - **main의 48바이트 스택 확보와 sp·s0 변화 파형**
 
-[상세 그림 — Notion](https://app.notion.com/p/3d423ec941b7815d9825ccf432bcf0bf#61fed19e488e489b9c1a14832521bcc8)
+![cpu main stack](../assets/project-media/cpu_main_stack.webp)
 
 - **관찰한 주요 Data Memory 주소**
 
@@ -241,7 +241,7 @@ main의 배열 24바이트, 변수 a 4바이트, ra·s0 8바이트를 합하면 
 
 - **sort 호출 시 a0·a1 전달과 JAL·ra·sp 변화**
 
-[상세 그림 — Notion](https://app.notion.com/p/3d423ec941b7815d9825ccf432bcf0bf#6dd0beff77e9420582dab91a984e9c61)
+![cpu sort call](../assets/project-media/cpu_sort_call.webp)
 
 배열 시작 주소 212(0xD4)를 a0에, 반복 상한 5를 a1에 전달했습니다. PC가 100에서 sort 시작 주소 120으로 이동하고, 복귀 주소 104가 ra에 저장되는지 확인했습니다.
 
@@ -249,7 +249,7 @@ main의 배열 24바이트, 변수 a 4바이트, ra·s0 8바이트를 합하면 
 
 - **swap의 원소 주소·메모리 교환 및 스택 복구 파형**
 
-[상세 그림 — Notion](https://app.notion.com/p/3d423ec941b7815d9825ccf432bcf0bf#3e5b2562d748478bbdeef50d699a81b0)
+![cpu swap memory](../assets/project-media/cpu_swap_memory.webp)
 
 위 사례에서 두 원소 주소 220(0xDC), 224(0xE0)를 전달하고 temp를 거쳐 Num\[2\]와 Num\[3\]의 9와 1을 교환했습니다. swap 중 sp는 160→112로 변하고, sort로 복귀하면 160으로 복구되는지 확인했습니다.
 
@@ -263,7 +263,7 @@ main의 배열 24바이트, 변수 a 4바이트, ra·s0 8바이트를 합하면 
 
 **Bubble Sort 최종 배열·main 복귀·a 저장 결과 파형**
 
-[상세 그림 — Notion](https://app.notion.com/p/3d423ec941b7815d9825ccf432bcf0bf#a3455adc329544f1b4e350b7406b181e)
+![cpu final result](../assets/project-media/cpu_final_result.webp)
 
 정렬 배열·main 복귀·a 저장값을 실행 파형에서 대조
 

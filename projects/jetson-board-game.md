@@ -81,13 +81,13 @@
 
 **장기 데이터 수집 — ArUco 기준점을 배치한 촬영 이미지**
 
-[상세 그림 — Notion](https://app.notion.com/p/3dc23ec941b781ce9fe1dcd6f5ae6d93#008a757badd242c294997df50f00f194)
+![board janggi aruco capture](../assets/project-media/board_janggi_aruco_capture.webp)
 
 수집 단계에서 마커를 이용해 장기판의 기준 좌표를 확보했습니다.
 
 **바둑 데이터 수집 — 기준점과 19×19 보드**
 
-[상세 그림 — Notion](https://app.notion.com/p/3dc23ec941b781ce9fe1dcd6f5ae6d93#e7fd618d338f43c8a419025ab8e51ede)
+![board baduk aruco capture](../assets/project-media/board_baduk_aruco_capture.webp)
 
 보드 좌표를 기준으로 교차점 패치를 수집하고 꼭짓점 학습용 데이터를 제작했습니다.
 
@@ -104,13 +104,13 @@
 
 **장기 격자 생성 — 9×10 교차점**
 
-[상세 그림 — Notion](https://app.notion.com/p/3dc23ec941b781ce9fe1dcd6f5ae6d93#d8111b6f890b47768782f1d0bf8298ec)
+![board janggi grid refinement](../assets/project-media/board_janggi_grid_refinement.webp)
 
 정규화된 장기판의 교차점 좌표와 기물 패치 위치를 맞췄습니다.
 
 **바둑 격자 생성 — 19×19 교차점**
 
-[상세 그림 — Notion](https://app.notion.com/p/3dc23ec941b781ce9fe1dcd6f5ae6d93#bc1b1fe9d91b406c908c30d9c9d0037b)
+![board baduk grid refinement](../assets/project-media/board_baduk_grid_refinement.webp)
 
 정규화된 보드에서 361개 교차점을 생성하고 각 위치를 분류기 입력으로 연결했습니다.
 
@@ -132,7 +132,7 @@ Pose mAP50은 0.989로 정리됐습니다. 보드 인식의 실제 좌표 정밀
 
 **장기 꼭짓점 Pixel Error — 135개 이미지·평균 17.21 px**
 
-[상세 그림 — Notion](https://app.notion.com/p/3dc23ec941b781ce9fe1dcd6f5ae6d93#aa471bd2183f4744b7d6796d40a3aa7a)
+![board janggi pose error](../assets/project-media/board_janggi_pose_error.webp)
 
 화면 기준 꼭짓점 순서 정렬 후 평균·중앙값·P90·위치별 오차 평가
 
@@ -147,13 +147,13 @@ Pose mAP50은 0.989로 정리됐습니다. 보드 인식의 실제 좌표 정밀
 
 **장기 패치 수집 화면 — 교차점별 기물 데이터 제작**
 
-[상세 그림 — Notion](https://app.notion.com/p/3dc23ec941b781ce9fe1dcd6f5ae6d93#004c9616637f42ee824fa9ff433f0d86)
+![board janggi patch collector](../assets/project-media/board_janggi_patch_collector.webp)
 
 기물·빈칸의 위치를 격자 좌표에 맞춰 수집하고 학습용 클래스 폴더에 저장했습니다.
 
 **장기 경량 CNN — 실제 모델 구조**
 
-[상세 그림 — Notion](https://app.notion.com/p/3dc23ec941b781ce9fe1dcd6f5ae6d93#8270699aabe7473e945474bd7c05aaee)
+![board janggi cnn structure](../assets/project-media/board_janggi_cnn_structure.webp)
 
 Conv2D·Batch Normalization·ReLU·MaxPool2D를 반복하는 분류기 구조입니다.
 
@@ -170,25 +170,25 @@ Conv2D·Batch Normalization·ReLU·MaxPool2D를 반복하는 분류기 구조입
 
 **장기 CNN Accuracy Curve — Train·Validation 비교**
 
-[상세 그림 — Notion](https://app.notion.com/p/3dc23ec941b781ce9fe1dcd6f5ae6d93#501a02d14316455292628cd80d9f78b1)
+![board janggi cnn accuracy](../assets/project-media/board_janggi_cnn_accuracy.webp)
 
 학습에 따른 전체·클래스 평균 정확도 추이를 확인했습니다.
 
 **장기 CNN Loss Curve — 학습·검증 손실**
 
-[상세 그림 — Notion](https://app.notion.com/p/3dc23ec941b781ce9fe1dcd6f5ae6d93#d7bf7b2a232e428584a78794956d10e9)
+![board janggi cnn loss](../assets/project-media/board_janggi_cnn_loss.webp)
 
 Train과 Validation의 손실 변화로 학습 과정을 점검했습니다.
 
 **장기 기물 Normalized Confusion Matrix**
 
-[상세 그림 — Notion](https://app.notion.com/p/3dc23ec941b781ce9fe1dcd6f5ae6d93#d9e405f7e8dd46898b9013a32be8717c)
+![board janggi cnn confusion](../assets/project-media/board_janggi_cnn_confusion.webp)
 
 클래스별 오분류 비율 비교
 
 **장기 CNN 결과 — Overall 99.14%·Macro 99.06%**
 
-[상세 그림 — Notion](https://app.notion.com/p/3dc23ec941b781ce9fe1dcd6f5ae6d93#ae8709f11413476186b5e5ff51e9d441)
+![board janggi cnn result](../assets/project-media/board_janggi_cnn_result.webp)
 
 Best Epoch 23·기물별 Validation 정확도
 
@@ -211,7 +211,7 @@ Best Epoch 23·기물별 Validation 정확도
 
 **바둑 꼭짓점 Pixel Error — 평균 17.48 px**
 
-[상세 그림 — Notion](https://app.notion.com/p/3dc23ec941b781ce9fe1dcd6f5ae6d93#b5d3ae0b28b54f73b7009379e2efdf2c)
+![board baduk pose error](../assets/project-media/board_baduk_pose_error.webp)
 
 전체와 꼭짓점별 위치 오차를 기록한 최종 발표자료의 평가 화면입니다.
 
@@ -228,25 +228,25 @@ Best Epoch 23·기물별 Validation 정확도
 
 **바둑 ResNet18 Accuracy Curve**
 
-[상세 그림 — Notion](https://app.notion.com/p/3dc23ec941b781ce9fe1dcd6f5ae6d93#81244032ba664e368b601c9ea581db07)
+![board baduk resnet accuracy](../assets/project-media/board_baduk_resnet_accuracy.webp)
 
 Train·Validation 정확도 변화와 학습 중 변동을 함께 확인했습니다.
 
 **바둑 ResNet18 Loss Curve**
 
-[상세 그림 — Notion](https://app.notion.com/p/3dc23ec941b781ce9fe1dcd6f5ae6d93#220d42c1230c4ea9b9f3d65e37643bbf)
+![board baduk resnet loss](../assets/project-media/board_baduk_resnet_loss.webp)
 
 학습 과정의 손실 변화를 확인한 원본 그래프입니다.
 
 **바둑 패치 분류 Normalized Confusion Matrix**
 
-[상세 그림 — Notion](https://app.notion.com/p/3dc23ec941b781ce9fe1dcd6f5ae6d93#a7ae88bc5083411fbb7e58edc75a32be)
+![board baduk resnet confusion](../assets/project-media/board_baduk_resnet_confusion.webp)
 
 흑돌·빈칸·백돌의 클래스별 테스트 결과입니다.
 
 **바둑 Final Test — 흑돌 25·빈칸 120·백돌 25 정분류**
 
-[상세 그림 — Notion](https://app.notion.com/p/3dc23ec941b781ce9fe1dcd6f5ae6d93#7db27ece55e04c9c9047a9a66b93e418)
+![board baduk resnet test](../assets/project-media/board_baduk_resnet_test.webp)
 
 170개 패치의 Accuracy·Balanced Accuracy와 표본 수를 함께 표시한 원본 결과입니다.
 
@@ -284,7 +284,7 @@ Train·Validation 정확도 변화와 학습 중 변동을 함께 확인했습�
 
 **장기 통합 GUI — 카메라·기물 배치·엔진 분석**
 
-[상세 그림 — Notion](https://app.notion.com/p/3dc23ec941b781ce9fe1dcd6f5ae6d93#2299a3d5992d42eaa0f19da79e79413a)
+![board janggi engine gui](../assets/project-media/board_janggi_engine_gui.webp)
 
 FEN 기반으로 재구성한 디지털 보드, 인식 화면과 분석 결과를 함께 표시했습니다.
 
@@ -325,13 +325,13 @@ FEN 기반으로 재구성한 디지털 보드, 인식 화면과 분석 결과�
 
 **Sobel 보정 전 — 교차점 좌표의 어긋남**
 
-[상세 그림 — Notion](https://app.notion.com/p/3dc23ec941b781ce9fe1dcd6f5ae6d93#9eb50c3608674b72bff06c6495e3ed10)
+![board baduk sobel before](../assets/project-media/board_baduk_sobel_before.webp)
 
 발표자료의 Before 화면으로, 보드 선과 예측한 교차점이 어긋난 구간을 확인할 수 있습니다.
 
 **Sobel 보정 후 — 실제 선에 맞춘 교차점**
 
-[상세 그림 — Notion](https://app.notion.com/p/3dc23ec941b781ce9fe1dcd6f5ae6d93#f05d78c070e04b5eb7515baf0f3234ac)
+![board baduk sobel after](../assets/project-media/board_baduk_sobel_after.webp)
 
 발표자료의 After 화면으로, 보드 선을 기준으로 보정한 격자를 표시했습니다.
 
@@ -368,13 +368,13 @@ FEN 기반으로 재구성한 디지털 보드, 인식 화면과 분석 결과�
 
 **장기 시연 영상 — 실제 국면 인식과 Fairy-Stockfish 분석**
 
-[시연 영상 — Notion](https://app.notion.com/p/3dc23ec941b781ce9fe1dcd6f5ae6d93#02b9448d50a9433bb3dd52af224fa064)
+[시연 영상](../assets/project-media/janggi-demo.mp4)
 
 장기 기물 이동에 따른 디지털 보드·추천 착수 변화 시연 · 약 48초
 
 **바둑 시연 영상 — 실제 국면 인식과 KataGo 분석·추천 착수**
 
-[시연 영상 — Notion](https://app.notion.com/p/3dc23ec941b781ce9fe1dcd6f5ae6d93#a6edc230f18740abb93b4248efa8d7f9)
+[시연 영상](../assets/project-media/baduk-demo.mp4)
 
 바둑 국면 인식·디지털 보드·KataGo 분석 결과 연동 시연
 

@@ -4,8 +4,6 @@
 
 대한상공회의소 온디바이스AI 시스템반도체 설계교육 · 팀
 
-![프로젝트 대표 자료](../assets/stereo-robot-arm.png)
-
 > **사람의 팔 움직임을 3D 좌표·목표각으로 변환해 실물 로봇팔과 Unity에 연결**
 >
 > **7인 팀 · Robot 3명 / CNN 4명 · 기간:** 2026.09.09 – 2026.10.15
@@ -19,7 +17,7 @@
 
 **사람 입력과 실물 로봇팔의 대응**
 
-[상세 그림 — Notion](https://app.notion.com/p/3f723ec941b7816881c9fe81751f1529#0de3d6e6cc4a454888e5cdad25fc6c3e)
+![robot follow result](../assets/project-media/robot_follow_result.webp)
 
 스테레오 좌표로 전환한 뒤 사람 동작과 로봇팔 동작을 대조한 결과
 
@@ -33,7 +31,7 @@
 
 **카메라 입력부터 로봇 출력까지의 전체 구조**
 
-[상세 그림 — Notion](https://app.notion.com/p/3f723ec941b7816881c9fe81751f1529#e82b059abfca40978e37bc65ad1efd46)
+![robot system architecture](../assets/project-media/robot_system_architecture.webp)
 
 개인 구현 범위는 3D 좌표·사람 목표각·통신·통합, 나머지 모듈은 팀 분담
 
@@ -44,7 +42,7 @@
 
 **로봇팔 제어 소프트웨어 계층**
 
-[상세 그림 — Notion](https://app.notion.com/p/3f723ec941b7816881c9fe81751f1529#2f5f728a22fc4691814fc444b09e39f2)
+![robot software stack](../assets/project-media/robot_software_stack.webp)
 
 Main Control 아래의 Pose Mapping, Motion Control, Record/Replay, Servo Control과 Driver/HAL의 경계입니다.
 
@@ -77,13 +75,13 @@ $$
 
 **시차와 카메라 기준 3D 좌표**
 
-[상세 그림 — Notion](https://app.notion.com/p/3f723ec941b7816881c9fe81751f1529#edc8c9f0db4e4e65a139eff7200b10e8)
+![robot stereo depth](../assets/project-media/robot_stereo_depth.webp)
 
 좌우 관측의 차이로 깊이를 복원하는 기본 관계입니다.
 
 **좌우 카메라 관측과 깊이 계산**
 
-[상세 그림 — Notion](https://app.notion.com/p/3f723ec941b7816881c9fe81751f1529#9b486599e2df41d4bf741b764a2d8dcd)
+![robot stereo geometry](../assets/project-media/robot_stereo_geometry.webp)
 
 팀 최종 발표자료의 원본 도식. 시차 d, 초점거리 f, 카메라 간 거리 B와 복원 위치의 관계를 보여줍니다.
 
@@ -119,13 +117,13 @@ $$
 
 **전완·손목·그리퍼의 5개 목표 정의**
 
-[상세 그림 — Notion](https://app.notion.com/p/3f723ec941b7816881c9fe81751f1529#1881f2b3bb484daf82f0ac51455c025e)
+![robot human angles](../assets/project-media/robot_human_angles.webp)
 
 사람 목표값과 로봇 서보 출력 사이에서 공유하는 제어 채널입니다.
 
 **사람 팔 동작과 로봇 관절의 대응**
 
-[상세 그림 — Notion](https://app.notion.com/p/3f723ec941b7816881c9fe81751f1529#295618e6f3a14193977d57637467ff4a)
+![robot person to servo](../assets/project-media/robot_person_to_servo.webp)
 
 팀 발표자료. 사람의 전완·손목·손가락 입력을 로봇팔 채널로 연결한 모습입니다.
 
@@ -229,13 +227,13 @@ CNN 관측은 영상 처리 완료 시점에 갱신되므로 20 ms 서보 제어
 
 **관측·사람 목표·로봇 제어·출력의 연결**
 
-[상세 그림 — Notion](https://app.notion.com/p/3f723ec941b7816881c9fe81751f1529#c3ecd838da3240fe90e5a8d2a1f0ab1b)
+![robot control flow](../assets/project-media/robot_control_flow.webp)
 
 각 단계의 좌표·각도 단위, valid 조건과 호출 시점을 맞춘 통합 흐름입니다.
 
 **연동한 로봇 보정·모션 제어 모듈**
 
-[상세 그림 — Notion](https://app.notion.com/p/3f723ec941b7816881c9fe81751f1529#4b84fa947c2c4d8fb068d9cb2b49d594)
+![robot motion safety](../assets/project-media/robot_motion_safety.webp)
 
 팀원 담당 모듈. scale·direction·offset과 가동범위·속도·가속도 제한, 순기구학 기반 자기충돌·테이블 충돌 검사에 개인 목표값 경로를 연결했습니다.
 
@@ -250,7 +248,7 @@ CNN 관측은 영상 처리 완료 시점에 갱신되므로 20 ms 서보 제어
 
 **PWM 출력과 동작 저장·재생**
 
-[상세 그림 — Notion](https://app.notion.com/p/3f723ec941b7816881c9fe81751f1529#3e9d1ccfe31d493e8c29e04cd96a5ace)
+![robot pwm record](../assets/project-media/robot_pwm_record.webp)
 
 팀 제본 자료. 5개 서보 채널에 펄스 폭을 출력하고, 20 ms 간격의 최종 명령 샘플을 기록·재생합니다.
 
@@ -258,7 +256,7 @@ CNN 관측은 영상 처리 완료 시점에 갱신되므로 20 ms 서보 제어
 
 **Unity Digital Twin 화면**
 
-[상세 그림 — Notion](https://app.notion.com/p/3f723ec941b7816881c9fe81751f1529#c985d7868f284833b84c469c4f82e741)
+![robot unity screen](../assets/project-media/robot_unity_screen.webp)
 
 UART 명령·상태·관절 Telemetry를 가상 로봇 표시와 연결한 팀 시연 화면입니다. Unity 구현은 팀 분담이며 개인 통합 범위는 데이터·상태 계약의 연결입니다.
 
@@ -278,13 +276,13 @@ UART 명령·상태·관절 Telemetry를 가상 로봇 표시와 연결한 팀 �
 
 **단안 상대 깊이 오차와 로봇 동작 불일치**
 
-[상세 그림 — Notion](https://app.notion.com/p/3f723ec941b7816881c9fe81751f1529#0abb6199dbf545e3b993f52c5ff19b09)
+![robot relative depth issue](../assets/project-media/robot_relative_depth_issue.webp)
 
 단안 입력의 깊이 모호성은 출력 보정만으로 해소하기 어려워 입력 좌표계를 전환했습니다.
 
 **몸통 기준축 회전에 따른 상대각 변화**
 
-[상세 그림 — Notion](https://app.notion.com/p/3f723ec941b7816881c9fe81751f1529#9e01d974ea4440dea054ea87b8285af0)
+![robot body axis issue](../assets/project-media/robot_body_axis_issue.webp)
 
 제본 자료의 개발 당시 화면. 기준축이 팔과 같은 방향으로 움직이면 상대각의 해석이 달라지는 과정을 보여줍니다.
 
@@ -292,7 +290,7 @@ UART 명령·상태·관절 Telemetry를 가상 로봇 표시와 연결한 팀 �
 
 **스테레오 기반 3D 좌표 생성으로 전환**
 
-[상세 그림 — Notion](https://app.notion.com/p/3f723ec941b7816881c9fe81751f1529#d145a3f67a1f4c5eab22813e25e4911f)
+![robot stereo solution](../assets/project-media/robot_stereo_solution.webp)
 
 좌우 관측 → 3D 위치 → 사람 목표각의 입력 경로를 바꾼 해결 과정입니다.
 
@@ -300,9 +298,11 @@ UART 명령·상태·관절 Telemetry를 가상 로봇 표시와 연결한 팀 �
 
 ## 시연·결과
 
+[![실물 로봇팔·Unity 시연 화면](../assets/project-media/robot-demo-poster.webp)](../assets/project-media/robot-real-unity-demo.mp4)
+
 **실물 로봇팔·Unity 동시 시연 · 약 95초**
 
-[시연 영상 — Notion](https://app.notion.com/p/3f723ec941b7816881c9fe81751f1529#555f3bc4ee934f158dc1d18dcf91cea6)
+[시연 영상](../assets/project-media/robot-real-unity-demo.mp4)
 
 사람 입력·실물 로봇·가상 로봇을 함께 확인하는 전체 시연
 

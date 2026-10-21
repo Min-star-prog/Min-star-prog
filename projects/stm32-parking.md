@@ -4,8 +4,6 @@
 
 대한상공회의소 온디바이스AI 시스템반도체 설계교육 · 개인 · 2026.07.23 – 2026.07.27
 
-![프로젝트 대표 자료](../assets/stm32-parking.png)
-
 > **초음파 감지·차단기 상태 제어·야간 조명·비상 입력을 통합한 STM32 프로토타입**
 
 ## 프로젝트 개요
@@ -15,7 +13,7 @@
 
 **실물 프로토타입**
 
-[상세 그림 — Notion](https://app.notion.com/p/3db23ec941b781ca880cec8239f21d4e#d91b1a9a9a3142c9a8e5d334fc4b62d2)
+![05 final board](../assets/stm32-parking.png)
 
 센서·모터 구동부·상태 LED를 연결한 개인 프로젝트
 
@@ -28,7 +26,7 @@ STM32 보드에 초음파 센서·조도센서·상태 LED·ULN2003·28BYJ-48을
 
 **스마트 주차장 시연 영상**
 
-[시연 영상 — Notion](https://app.notion.com/p/3db23ec941b781ca880cec8239f21d4e#0ead4a448aff43cc96c7376fa3b26486)
+[시연 영상](../assets/project-media/parking-demo.mp4)
 
 센서 입력·LED 변화·버튼 조작을 담은 실물 시연입니다. 자동 개폐는 FSM과 목표값 제어를 구현했으며, 모터 회전·전원 조건의 점검 내용은 문제 해결 항목에 정리했습니다.
 
@@ -50,7 +48,7 @@ STM32 보드에 초음파 센서·조도센서·상태 LED·ULN2003·28BYJ-48을
 
 **센서 입력부터 모터·LED 출력까지의 구조**
 
-[상세 그림 — Notion](https://app.notion.com/p/3db23ec941b781ca880cec8239f21d4e#ed04a86a66c34dcca835eb8e04df70ab)
+![01 block diagram](../assets/project-media/01_block_diagram.webp)
 
 거리·조도·비상 버튼 입력 → STM32 상태 판단 → 모터 목표값·LED 제어
 
@@ -81,7 +79,7 @@ STM32 보드에 초음파 센서·조도센서·상태 LED·ULN2003·28BYJ-48을
 
 **차단기 상태 전이**
 
-[상세 그림 — Notion](https://app.notion.com/p/3db23ec941b781ca880cec8239f21d4e#a423d2580a934e2dbd728245bf6fabc2)
+![04 state machine](../assets/project-media/04_state_machine.webp)
 
 차량 감지·모터 목표 도달·이탈 유지 시간을 조건으로 상태 전환
 
@@ -90,7 +88,7 @@ STM32 보드에 초음파 센서·조도센서·상태 LED·ULN2003·28BYJ-48을
 
 **HC-SR04 거리 측정 절차**
 
-[상세 그림 — Notion](https://app.notion.com/p/3db23ec941b781ca880cec8239f21d4e#6ec41fa5bc5a49d3893a9b1b08e437b6)
+![02 hcsr04 flow](../assets/project-media/02_hcsr04_flow.webp)
 
 TIM2를 1 MHz Free-running Timer로 구성해 Echo 펄스 폭을 µs 단위로 측정합니다.
 
@@ -159,7 +157,7 @@ ULN2003의 4개 입력을 GPIO로 제어하고, 8개 Half-step 패턴을 순차 
 
 **TIM4 기반 비동기 모터 제어**
 
-[상세 그림 — Notion](https://app.notion.com/p/3db23ec941b781ca880cec8239f21d4e#edd564dcb7c4498099bf76a1aabe4016)
+![03 nonblocking motor](../assets/project-media/03_nonblocking_motor.webp)
 
 메인 루프는 목표 위치를 지정하고, TIM4 ISR은 시간 기준과 모터 Step 갱신을 담당합니다.
 

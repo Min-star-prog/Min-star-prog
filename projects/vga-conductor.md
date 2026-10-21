@@ -85,7 +85,7 @@ PC에서 받는 8비트 데이터는 PC 상태 `[6:4]`, 곡 번호 `[2:0]`를 �
 
 - **지휘봉의 4개 ZONE과 진행 순서**
 
-[상세 그림 — Notion](https://app.notion.com/p/3d423ec941b781d2a2a5fcb84437ab55#6ba6e200bd6d44398d87e597fb0585f5)
+![pattern zone](../assets/project-media/pattern_zone.webp)
 
 | 상태 | 전이 조건 | 동작 |
 | --- | --- | --- |
@@ -101,7 +101,7 @@ PC에서 받는 8비트 데이터는 PC 상태 `[6:4]`, 곡 번호 `[2:0]`를 �
 
 - **지휘 상태 판정 파형 — 시작·준비·패턴 진행·정지**
 
-[상세 그림 — Notion](https://app.notion.com/p/3d423ec941b781d2a2a5fcb84437ab55#d3a9a4ff49f449cfba4b17f06c908684)
+![pattern waveform](../assets/project-media/pattern_waveform.webp)
 
 좌표, 상태, `pattern_tick`, `pattern_control_valid`를 함께 관찰해 전이 시점을 확인했습니다. 최종 RTL에서 진행 중 ZONE 전이는 `i_state_change_enable`로 제어하고, `i_vsync`는 Valid 초기화에 사용합니다. 파형의 주석도 이 구분에 맞춰 정리했습니다.
 
@@ -141,7 +141,7 @@ PC에서 받는 8비트 데이터는 PC 상태 `[6:4]`, 곡 번호 `[2:0]`를 �
 
 - **점수 계산 개발 파형 — RAM 수집·평균·SEND 확인**
 
-[상세 그림 — Notion](https://app.notion.com/p/3d423ec941b781d2a2a5fcb84437ab55#cd64b84fab9242a2b01421e3cdadfe51)
+![score waveform](../assets/project-media/score_waveform.webp)
 
 화살표는 Tick에 따른 RAM 갱신 위치, 박스는 `speed_diff`와 점수·Valid의 출력 시점을 가리킵니다. 이 파형은 개발 단계 캡처로, 당시 점수 임계값은 최종 첨부 RTL과 다릅니다. 위 조건표는 최종 RTL 기준입니다.
 
@@ -189,7 +189,7 @@ PC에서 받는 8비트 데이터는 PC 상태 `[6:4]`, 곡 번호 `[2:0]`를 �
 
 - **제어부 전달 파형 — 좌표·지휘 상태·속도·점수의 순서**
 
-[상세 그림 — Notion](https://app.notion.com/p/3d423ec941b781d2a2a5fcb84437ab55#e321acf45eb04fd197cca4f2068f6393)
+![uvm timing waveform](../assets/project-media/uvm_timing_waveform.webp)
 
 좌표 입력 뒤 지휘 상태가 바뀌고, Tick을 받은 속도 모듈의 출력이 점수 계산으로 이어지는 순서를 관찰했습니다. 각 모듈의 상태와 Valid를 함께 보며 데이터가 준비되는 시점을 대조했습니다.
 
@@ -204,13 +204,13 @@ PC에서 받는 8비트 데이터는 PC 상태 `[6:4]`, 곡 번호 `[2:0]`를 �
 
 - **코너 케이스 보완 후 Functional Coverage — 98.96%**
 
-[상세 그림 — Notion](https://app.notion.com/p/3d423ec941b781d2a2a5fcb84437ab55#cbc23903d408447d89efd8fe422d0589)
+![functional coverage](../assets/project-media/functional_coverage.webp)
 
 최종 캡처에서 `cp_pattern_transition`은 **12개 bin 중 11개 Hit(91.67%)**이고, 나머지 표시된 Coverpoint는 100%입니다. 남은 전이 bin이 있어 Functional Coverage 100%로 표기하지 않았습니다.
 
 - **제어부 Code Coverage — DUT Score 83.47%**
 
-[상세 그림 — Notion](https://app.notion.com/p/3d423ec941b781d2a2a5fcb84437ab55#60e4fe25afb94fbeb5158b9537ada339)
+![code coverage](../assets/project-media/code_coverage.webp)
 
 캡처의 DUT 기준 Line 97.35%, Toggle 77.47%, FSM 74.42%, Condition 78.90%, Branch 89.21%입니다. 기능 bin의 충족률인 Functional Coverage와 코드 실행 지표인 Code Coverage를 별도로 확인했습니다.
 
@@ -261,7 +261,7 @@ PC에서 받는 8비트 데이터는 PC 상태 `[6:4]`, 곡 번호 `[2:0]`를 �
 
 - **박자 중간의 BPM 변경 문제와 잔여 시간 고려 방식**
 
-[상세 그림 — Notion](https://app.notion.com/p/3d423ec941b781d2a2a5fcb84437ab55#4f72c3cd18354a9ab6d1f711fd5bbf61)
+![music timing comparison](../assets/project-media/music_timing_comparison.webp)
 
 첨부 RTL은 `S_WAIT → S_CALC → S_COMP`에서 계산을 진행하고, `S_FAST` 또는 `S_NORMAL`로 분기합니다. 계산·대기 중 `o_state_change_enable=0`으로 추가 ZONE 전이를 막아, 한 번의 지휘 입력을 처리하는 동안 다음 입력이 앞서 진행하지 않도록 구성했습니다.
 
@@ -274,23 +274,23 @@ PC에서 받는 8비트 데이터는 PC 상태 `[6:4]`, 곡 번호 `[2:0]`를 �
 
 - **초기 타이밍 분석 — Negative Slack -80.719 ns**
 
-[상세 그림 — Notion](https://app.notion.com/p/3d423ec941b781d2a2a5fcb84437ab55#1944d52df9024eb0ba5076db52e6d338)
+![timing negative slack](../assets/project-media/timing_negative_slack.webp)
 
 **조합 경로 경량화:** 재생 기준 BPM을 박자 시간으로 바꾸는 계산은 `bpm_to_cnt_LUT`로 대체했습니다. 경과 시간은 10 ns 클럭 단위 대신 **1 ms Tick으로 계수**해 11비트 카운터로 다룰 수 있게 했습니다. `count → BPM`의 `60000 / count_reg` 나눗셈은 남아 있습니다.
 
 - **BPM → 재생 기준 시간 변환용 LUT**
 
-[상세 그림 — Notion](https://app.notion.com/p/3d423ec941b781d2a2a5fcb84437ab55#84fe4107a75d4b7e8698248b1b9800dd)
+![timing lut ms tick](../assets/project-media/timing_lut_ms_tick.webp)
 
 **계산·저장 시점 조정:** 남은 나눗셈 경로에 `S_WAIT`의 대기와 결과 저장 단계를 두고, `count_reg → reg_bpm_comp_reg` 경로에 **Setup 3 / Hold 2**의 Multicycle Path를 적용했습니다. 단순한 전송 지연이나 분주 클럭 생성과 구분되는 연산 경로 제약입니다.
 
 - **계산 대기 FSM과 Multicycle Path 제약**
 
-[상세 그림 — Notion](https://app.notion.com/p/3d423ec941b781d2a2a5fcb84437ab55#7863caa74e214098907228c4e8bb131e)
+![timing multicycle fsm](../assets/project-media/timing_multicycle_fsm.webp)
 
 - **최종 Design Timing Summary — WNS +0.205 ns**
 
-[상세 그림 — Notion](https://app.notion.com/p/3d423ec941b781d2a2a5fcb84437ab55#0e1dbb9ba07d44b7bafa0af0085eabfc)
+![timing final](../assets/project-media/timing_final.webp)
 
 | 항목 | 최종 캡처 |
 | --- | --- |

@@ -4,8 +4,6 @@
 
 성남시-가천대 반도체 팹리스 아카데미 · 개인 · 2024.04.18 – 2024.06.06
 
-![프로젝트 대표 자료](../assets/ddi-circuit.png)
-
 > **디스플레이 구동 IC의 논리·순차·전압 변환 블록을 트랜지스터 수준으로 설계·시뮬레이션**
 
 ## 프로젝트 개요
@@ -17,7 +15,7 @@
 
 **8-bit DAC 테스트 회로**
 
-[상세 그림 — Notion](https://app.notion.com/p/3e123ec941b781a48a16f467e40bd690#b9cff78f93654117bc57fd37a0a09274)
+![DDI dac testbench](../assets/project-media/DDI_dac_testbench.webp)
 
 입력 코드·보수 신호·기준 전압망을 연결한 전압 변환 블록
 
@@ -35,7 +33,7 @@
 
 **Inverter Schematic**
 
-[상세 그림 — Notion](https://app.notion.com/p/3e123ec941b781a48a16f467e40bd690#0665d43bb6184b3cbfc2c99e1e569489)
+![ddi inverter schematic](../assets/project-media/ddi_inverter_schematic.webp)
 
 NMOS·PMOS와 입력·출력 노드를 구성한 실습 회로입니다.
 
@@ -50,7 +48,7 @@ NMOS와 PMOS를 연결해 Inverter를 구성하고, VDD=1 V 조건에서 입력 
 
 **Inverter DC 전달 특성**
 
-[상세 그림 — Notion](https://app.notion.com/p/3e123ec941b781a48a16f467e40bd690#bc094c63d29e44188b3404d2cc1690bc)
+![ddi inverter vtc](../assets/project-media/ddi_inverter_vtc.webp)
 
 입력 500 mV·출력 500.925 mV의 DC 커서값
 
@@ -70,13 +68,13 @@ NMOS와 PMOS를 연결해 Inverter를 구성하고, VDD=1 V 조건에서 입력 
 
 **NAND VTC·입력 0.5 V 부근 출력**
 
-[상세 그림 — Notion](https://app.notion.com/p/3e123ec941b781a48a16f467e40bd690#2bc713f39c55419c910fb99b12f73dc1)
+![ddi nand vtc](../assets/project-media/ddi_nand_vtc.webp)
 
 Width 조정 후 DC Sweep에서 약 0.5 V 부근의 출력을 확인했습니다.
 
 **NOR VTC·입력 0.5 V 부근 출력**
 
-[상세 그림 — Notion](https://app.notion.com/p/3e123ec941b781a48a16f467e40bd690#cd88d5f275b34a5eb233bca8109bcc46)
+![ddi nor vtc](../assets/project-media/ddi_nor_vtc.webp)
 
 원본 커서값은 약 497.638 mV이며, 전환 특성을 비교한 화면입니다.
 
@@ -93,7 +91,7 @@ NMOS·PMOS를 상보적인 선택 신호 SEL/SELB로 제어하는 Transmission G
 
 **Transmission Gate 전달 파형**
 
-[상세 그림 — Notion](https://app.notion.com/p/3e123ec941b781a48a16f467e40bd690#334d5b1d13104f6b8ffa6102092176f0)
+![ddi tg waveform](../assets/project-media/ddi_tg_waveform.webp)
 
 SEL/SELB와 VIN/VOUT을 함께 확인해 선택 조건에 따른 전달을 살펴봤습니다.
 
@@ -101,7 +99,7 @@ SEL/SELB와 VIN/VOUT을 함께 확인해 선택 조건에 따른 전달을 살�
 
 **기본 게이트·TG Symbol**
 
-[상세 그림 — Notion](https://app.notion.com/p/3e123ec941b781a48a16f467e40bd690#e11bdcec6e0a477bac73348af68ddefa)
+![ddi gate symbols](../assets/project-media/ddi_gate_symbols.webp)
 
 INV·NAND·NOR·TG를 상위 회로에서 재사용하기 위한 Symbol입니다.
 
@@ -111,7 +109,7 @@ INV·NAND·NOR·TG를 상위 회로에서 재사용하기 위한 Symbol입니다
 
 **TG의 VDD 초과 출력 파형**
 
-[상세 그림 — Notion](https://app.notion.com/p/3e123ec941b781a48a16f467e40bd690#f40e59f4b94547bf859c6b5877161d29)
+![ddi tg overshoot](../assets/project-media/ddi_tg_overshoot.webp)
 
 VDD=1 V를 넘는 출력이 나타난 구간입니다. 전하 주입·Clock Feedthrough의 기여는 분리 측정하지 않았습니다.
 
@@ -128,7 +126,7 @@ VDD=1 V를 넘는 출력이 나타난 구간입니다. 전하 주입·Clock Feed
 
 **TG 기반 DFF Schematic**
 
-[상세 그림 — Notion](https://app.notion.com/p/3e123ec941b781a48a16f467e40bd690#8f4214dcae1c46c78878e2692c722129)
+![ddi dff schematic](../assets/project-media/ddi_dff_schematic.webp)
 
 TG와 Inverter를 조합하고 D·CLK·Q를 연결한 회로입니다.
 
@@ -143,7 +141,7 @@ TG와 Inverter를 조합해 DFF를 구성하고, D·CK\_EX·Q 파형으로 클�
 
 **DFF 데이터 저장 파형**
 
-[상세 그림 — Notion](https://app.notion.com/p/3e123ec941b781a48a16f467e40bd690#aee3c613290043ca888babfc30d62aa0)
+![ddi dff waveform](../assets/project-media/ddi_dff_waveform.webp)
 
 D·CK\_EX·Q를 함께 표시해 클록에 따른 출력 갱신을 확인했습니다.
 
@@ -156,7 +154,7 @@ D·CK\_EX·Q를 함께 표시해 클록에 따른 출력 갱신을 확인했습�
 
 **ResetB를 추가한 DFF Schematic**
 
-[상세 그림 — Notion](https://app.notion.com/p/3e123ec941b781a48a16f467e40bd690#d6a266a3e77d489e9376af78fe06f98c)
+![ddi reset dff schematic](../assets/project-media/ddi_reset_dff_schematic.webp)
 
 NAND 기반 ResetB 경로를 포함한 DFF 테스트 회로입니다.
 
@@ -171,7 +169,7 @@ DFF에 NAND 기반 ResetB 경로를 추가했습니다. ResetB가 0인 구간에
 
 **ResetB DFF 초기화·해제 파형**
 
-[상세 그림 — Notion](https://app.notion.com/p/3e123ec941b781a48a16f467e40bd690#ea2f0d325ba4417fbfeb8b1a4b204fb3)
+![ddi reset dff waveform](../assets/project-media/ddi_reset_dff_waveform.webp)
 
 RSB=0에서의 Q 유지와 해제 후 클록에 따른 저장 동작을 확인했습니다.
 
@@ -184,7 +182,7 @@ Reset을 단순한 초기값 설정으로만 두지 않고, 입력·클록이 �
 
 **8단 Shift Register Schematic**
 
-[상세 그림 — Notion](https://app.notion.com/p/3e123ec941b781a48a16f467e40bd690#7f2cbd49357547699837dc05212ecf06)
+![ddi shift schematic](../assets/project-media/ddi_shift_schematic.webp)
 
 ResetB DFF 8개를 공통 클록과 ResetB로 연결한 회로입니다.
 
@@ -192,7 +190,7 @@ ResetB가 포함된 DFF를 8단으로 연결하고, 앞단 Q가 다음 단 D로 
 
 **8단 Shift Register 데이터 전달 파형**
 
-[상세 그림 — Notion](https://app.notion.com/p/3e123ec941b781a48a16f467e40bd690#11b4d3cfe95b43298463dce77fd14766)
+![DDI shift waveform](../assets/project-media/DDI_shift_waveform.webp)
 
 단계별 출력을 비교해 입력 데이터가 클록에 따라 다음 단으로 전달되는 것을 확인했습니다.
 
@@ -213,7 +211,7 @@ ResetB가 포함된 DFF를 8단으로 연결하고, 앞단 Q가 다음 단 D로 
 
 **8-bit DAC 출력**
 
-[상세 그림 — Notion](https://app.notion.com/p/3e123ec941b781a48a16f467e40bd690#814d59b3044441199dee96e945036a3f)
+![DDI DAC waveform](../assets/project-media/DDI_DAC_waveform.webp)
 
 코드 증가·순환에 따른 출력 변화와 코드 전환 글리치 관찰
 
@@ -222,7 +220,7 @@ ResetB가 포함된 DFF를 8단으로 연결하고, 앞단 Q가 다음 단 D로 
 
 **8-bit Decoder 구성 화면**
 
-[상세 그림 — Notion](https://app.notion.com/p/3e123ec941b781a48a16f467e40bd690#47269a5ec2184be187c57529e407c864)
+![ddi decoder schematic](../assets/project-media/ddi_decoder_schematic.webp)
 
 입력 비트·보수 신호와 기준 전압을 연결한 Decoder 하위 셀 구성입니다.
 
@@ -257,7 +255,7 @@ D\<0:7> 입력, 보수 신호, 기준 전압망과 Decoder를 연결한 테스�
 
 **DAC 반복 코드 입력에 따른 출력**
 
-[상세 그림 — Notion](https://app.notion.com/p/3e123ec941b781a48a16f467e40bd690#37105911589840df8983a6369f360de5)
+![ddi dac repeat waveform](../assets/project-media/ddi_dac_repeat_waveform.webp)
 
 약 500 µs 구간에서 최대 코드 이후 낮은 전압부터 다시 진행하는 출력과 코드 전환 글리치를 관찰했습니다.
 
@@ -275,7 +273,7 @@ DNL은 코드별 정착 출력 간격을 이상적인 1 LSB와 비교해 별도�
 
 **Sizing 조정 후 Level Shifter 파형**
 
-[상세 그림 — Notion](https://app.notion.com/p/3e123ec941b781a48a16f467e40bd690#00b2739824ae4a13b4661fd203f93bd8)
+![DDI level after](../assets/project-media/DDI_level_after.webp)
 
 입력 IN/INB에 대응하는 OUT/OUTB의 상보 전환
 
@@ -286,7 +284,7 @@ DNL은 코드별 정착 출력 간격을 이상적인 1 LSB와 비교해 별도�
 
 **Sizing 조정 전 Level Shifter 파형**
 
-[상세 그림 — Notion](https://app.notion.com/p/3e123ec941b781a48a16f467e40bd690#86483c1ca9154853a464bcd2a77e0267)
+![DDI level before](../assets/project-media/DDI_level_before.webp)
 
 OUT은 약 2.17 V 부근까지만 상승하고 OUTB도 완전한 Low로 내려가지 않는 초기 파형입니다.
 
@@ -310,13 +308,13 @@ NMOS Width를 1.05\~1.08 µm 범위에서 0.005 µm, 즉 5 nm 간격으로 Sweep
 
 **Level Shifter NMOS Width Sweep**
 
-[상세 그림 — Notion](https://app.notion.com/p/3e123ec941b781a48a16f467e40bd690#5f19f52443584b15b464bb896562a04f)
+![DDI level sweep](../assets/project-media/DDI_level_sweep.webp)
 
 Width 후보별 출력 전이 파형을 겹쳐 비교한 자료입니다. 단위는 µm이며 간격은 5 nm입니다.
 
 **Level Shifter Low-to-High 확대 파형**
 
-[상세 그림 — Notion](https://app.notion.com/p/3e123ec941b781a48a16f467e40bd690#99063dbea2724d82bea6a7d8ee9c19d7)
+![ddi level rising edge](../assets/project-media/ddi_level_rising_edge.webp)
 
 조정 후 출력 상승과 상보 출력 하강을 확대해 비교한 원본입니다.
 
@@ -324,7 +322,7 @@ Width 후보별 출력 전이 파형을 겹쳐 비교한 자료입니다. 단위
 
 **Level Shifter High-to-Low 확대 파형**
 
-[상세 그림 — Notion](https://app.notion.com/p/3e123ec941b781a48a16f467e40bd690#2cd43c7cba5242158b72ad20fd60adf5)
+![ddi level falling edge](../assets/project-media/ddi_level_falling_edge.webp)
 
 조정 후 출력 하강과 상보 출력 상승을 확대해 비교한 원본입니다.
 
