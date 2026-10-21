@@ -12,7 +12,6 @@
 | [AXI4-Lite 주변장치·MicroBlaze](projects/axi-microblaze.md) | [AXI Custom IP 모음](https://github.com/Min-star-prog/ondeviceai/tree/main/window/OndeviceAI2/ip_repo)<br>[I2C Master IP](https://github.com/Min-star-prog/ondeviceai/tree/main/window/OndeviceAI2/ip_repo/i2c_1.0)<br>[MicroBlaze·Timer·I2C 시스템](https://github.com/Min-star-prog/ondeviceai/tree/main/window/OndeviceAI2/260628_microblaze_timer_i2c) |
 | [RV32I Single-Cycle CPU](projects/rv32i-cpu.md) | [RV32I RTL·Testbench](https://github.com/Min-star-prog/ondeviceai/tree/main/linux/20260527_RV32I_singlecycle_source_code) |
 | [UART 시계·센서 통합 시스템](projects/uart-sensor.md) | [센서·UART 통합 RTL](https://github.com/Min-star-prog/ondeviceai/tree/main/window/OndeviceAI2/fifo_sensor/fifo_sensor.srcs/sources_1/new) |
-| [FPGA VGA 두더지 게임](projects/vga-mole.md) | [구현·검증 자료](projects/vga-mole.md) |
 
 ## SystemVerilog·UVM 검증
 
@@ -26,26 +25,15 @@
 
 | 프로젝트 | 코드·자료 |
 | --- | --- |
-| [스테레오 비전 3D 동작 추종 로봇팔](projects/stereo-robot-arm.md) | [로봇팔 소스·운영 문서](https://github.com/Min-star-prog/ondeviceai/tree/main/robot_arm)<br>[담당 구현·코드 읽는 순서](https://github.com/Min-star-prog/ondeviceai/blob/main/robot_arm/PORTFOLIO.md)<br>[전완 목표각 계산](https://github.com/Min-star-prog/ondeviceai/blob/main/robot_arm/src/human_target_angle/forearm_mapping.c)<br>[UART 계약](https://github.com/Min-star-prog/ondeviceai/blob/main/robot_arm/docs/uart_protocol_unity.md) |
+| [스테레오 비전 3D 동작 추종 로봇팔](projects/stereo-robot-arm.md) | [로봇팔 소스·운영 문서](https://github.com/Min-star-prog/ondeviceai/tree/main/robot_arm)<br>[담당 구현·코드 읽는 순서](https://github.com/Min-star-prog/ondeviceai/blob/main/robot_arm/PORTFOLIO.md)<br>[전완 목표각 계산](https://github.com/Min-star-prog/ondeviceai/blob/main/robot_arm/robot_arm/src/app/robot/vision/human_target/forearm_mapping.c)<br>[UART 계약](https://github.com/Min-star-prog/ondeviceai/blob/main/robot_arm/robot_arm/docs/uart_protocol_unity.md) |
 | [STM32 스마트 주차장 차단기](projects/stm32-parking.md) | [차단기 제어 C 소스](https://github.com/Min-star-prog/ondeviceai/tree/main/%EC%9E%84%EB%B2%A0%EB%94%94%EB%93%9C%20%EC%8B%9C%EC%8A%A4%ED%85%9C/1602.project) |
-
-## 트랜지스터 수준 회로 설계
-
-| 프로젝트 | 코드·자료 |
-| --- | --- |
-| [DDI 구성 블록 회로 설계](projects/ddi-circuit.md) | [구현·검증 자료](projects/ddi-circuit.md) |
-
-## On-Device AI·영상 인식
-
-| 프로젝트 | 코드·자료 |
-| --- | --- |
-| [Jetson 보드게임 인식·분석](projects/jetson-board-game.md) | [구현·검증 자료](projects/jetson-board-game.md) |
 
 ## 로봇팔 코드 읽는 순서
 
 1. [담당 역할과 전체 구조](https://github.com/Min-star-prog/ondeviceai/blob/main/robot_arm/PORTFOLIO.md)
-2. [스테레오 좌표·각도 계약](https://github.com/Min-star-prog/ondeviceai/blob/main/robot_arm/docs/stereo_absolute_angles.md)
-3. [전완 목표각 계산](https://github.com/Min-star-prog/ondeviceai/blob/main/robot_arm/src/human_target_angle/forearm_mapping.c)
-4. [통합 파이프라인](https://github.com/Min-star-prog/ondeviceai/blob/main/robot_arm/src/integration/agent_pipeline.c)
+2. [스테레오 좌표·각도 계약](https://github.com/Min-star-prog/ondeviceai/blob/main/robot_arm/robot_arm/docs/stereo_absolute_angles.md)
+3. [전완 목표각 계산](https://github.com/Min-star-prog/ondeviceai/blob/main/robot_arm/robot_arm/src/app/robot/vision/human_target/forearm_mapping.c)
+4. [통합 파이프라인](https://github.com/Min-star-prog/ondeviceai/blob/main/robot_arm/robot_arm/src/app/main.c)
 
 [← 포트폴리오 첫 화면](README.md)
+

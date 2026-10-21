@@ -61,7 +61,7 @@ RTL 설계, 검증 환경 구축, 시스템 통합을 각각 보여주는 프로
 
 ## 전체 프로젝트
 
-**12개 프로젝트 · 5개 기술 분야** &nbsp; | &nbsp; [교육·기관별 보기](projects/README.md)
+**13개 프로젝트 · 6개 기술 분야** &nbsp; | &nbsp; [교육·기관별 보기](projects/README.md)
 
 | 분야 | 프로젝트 | 주요 내용 |
 | :--- | :--- | :--- |
@@ -76,9 +76,10 @@ RTL 설계, 검증 환경 구축, 시스템 통합을 각각 보여주는 프로
 | **임베디드 제어** | [스테레오 비전 3D 동작 추종 로봇팔](projects/stereo-robot-arm.md) | 스테레오 3D · 사람 각도 · UART · 통합 |
 | | [STM32 스마트 주차장 차단기](projects/stm32-parking.md) | 센서 · 상태 제어 · 타이머 인터럽트 · 모터 |
 | **회로 설계** | [DDI 구성 블록 회로 설계](projects/ddi-circuit.md) | Schematic · Sizing · DC/TRAN 분석 |
+| **소자 평가** | [산화물 TFT 특성·신뢰성 평가](projects/adrc-tft.md) | Transfer·Output · PBS/NBS · 온도·주사 시간 비교 |
 | **On-Device AI** | [Jetson 보드게임 인식·분석](projects/jetson-board-game.md) | 장기·바둑 인식 · 국면 안정화 · 엔진·GUI |
 
-프로젝트명을 누르면 담당 역할, 설계·검증, 문제 해결과 코드·시연 자료를 볼 수 있습니다.
+프로젝트별 개요·담당 역할·대표 결과와 주제별 상세 자료.
 
 <br>
 
@@ -157,6 +158,7 @@ Python · OpenCV · Jetson Orin Nano<br>
 
 | 시기 | 수상 |
 | :--- | :--- |
+| 2026.10 | **최우수상** · 온디바이스 AI 시스템반도체 설계 최종프로젝트 경진대회 |
 | 2026.01 | **우수상** · 팹리스 실무형 일경험 프로그램 |
 | 2024.07 | **최우수상 · 성남시장 표창** · 성남시 반도체 팹리스 아카데미 |
 
@@ -169,3 +171,4 @@ Python · OpenCV · Jetson Orin Nano<br>
 <a href="projects/README.md">교육·기관별 프로젝트</a> &nbsp; · &nbsp;
 <a href="https://app.notion.com/p/09623ec941b782e6a750819f197c7713">Notion 포트폴리오 ↗</a>
 </p>
+

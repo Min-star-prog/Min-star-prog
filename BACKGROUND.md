@@ -136,6 +136,8 @@ SystemVerilog Design / Verification / Assertion (VCS), ARM-based Modern SoC Arch
 
 ### ADRC 연구실 인턴
 
+[산화물 TFT 전기적 특성 및 신뢰성 평가 →](projects/adrc-tft.md)
+
 학부 연구실에서 차세대 디스플레이 소자의 전기적 특성과 신뢰성을 측정하고 평가했습니다.
 
 #### 개요
@@ -182,6 +184,7 @@ SystemVerilog Design / Verification / Assertion (VCS), ARM-based Modern SoC Arch
 
 | 수상 | 기록 |
 | --- | --- |
+| 온디바이스 AI 시스템반도체 설계 최종프로젝트 경진대회 최우수상 | [수상 자료](https://app.notion.com/p/3fe23ec941b7815eb86effd491bd3d7d) |
 | 성남시 반도체 팹리스 아카데미 최우수상 | [수상 자료](https://app.notion.com/3d423ec941b7810d9217d2f449dc3db7) |
 | 팹리스 실무형 일경험 프로그램 우수상 | [수상 자료](https://app.notion.com/3d423ec941b781aaa71dfe4abffc80a9) |
 
@@ -195,3 +198,4 @@ SystemVerilog Design / Verification / Assertion (VCS), ARM-based Modern SoC Arch
 | 기타 인증서 및 수료증 | — | [노션 기록](https://app.notion.com/3e123ec941b78019b347f1e320ef99ec) |
 
 [← 포트폴리오 첫 화면](README.md)
+
