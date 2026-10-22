@@ -61,7 +61,7 @@ RTL 설계, 검증 환경 구축, 시스템 통합을 각각 보여주는 프로
 
 ## 전체 프로젝트
 
-**13개 프로젝트 · 6개 기술 분야** &nbsp; | &nbsp; [교육·기관별 보기](projects/README.md)
+**14개 프로젝트 · 6개 기술 분야** &nbsp; | &nbsp; [교육·기관별 보기](projects/README.md)
 
 | 분야 | 프로젝트 | 주요 내용 |
 | :--- | :--- | :--- |
@@ -69,6 +69,7 @@ RTL 설계, 검증 환경 구축, 시스템 통합을 각각 보여주는 프로
 | | [AXI4-Lite 주변장치·MicroBlaze](projects/axi-microblaze.md) | GPIO · Timer · UART · I2C Master · AXI 연동 |
 | | [RV32I Single-Cycle CPU](projects/rv32i-cpu.md) | CPU RTL · 37개 명령어 · Bubble Sort 실행 검증 |
 | | [UART 시계·센서 통합 시스템](projects/uart-sensor.md) | SR04 Datapath·CU·Testbench · Top 통합 |
+| | [FPGA Stopwatch·Watch 통합 시간 시스템](projects/stopwatch-watch.md) | Watch FSM·Datapath · 시간 조정 · Testbench |
 | | [FPGA VGA 두더지 게임](projects/vga-mole.md) | 화면 생성 · RGB 합성 · DE2 보드 동작 |
 | **SV·UVM 검증** | [UBUS Master–Slave UVM VIP](projects/ubus-uvm.md) | Master Agent·Sequence · Slave 연동 |
 | | [SPI·I2C 통신 IP UVM 검증](projects/spi-i2c-uvm.md) | Master–Slave 자동 비교 · Coverage |
@@ -171,4 +172,5 @@ Python · OpenCV · Jetson Orin Nano<br>
 <a href="projects/README.md">교육·기관별 프로젝트</a> &nbsp; · &nbsp;
 <a href="https://app.notion.com/p/09623ec941b782e6a750819f197c7713">Notion 포트폴리오 ↗</a>
 </p>
+
 

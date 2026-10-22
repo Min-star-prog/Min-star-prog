@@ -12,6 +12,7 @@
 | [AXI4-Lite 주변장치·MicroBlaze](projects/axi-microblaze.md) | [AXI Custom IP 모음](https://github.com/Min-star-prog/ondeviceai/tree/main/window/OndeviceAI2/ip_repo)<br>[I2C Master IP](https://github.com/Min-star-prog/ondeviceai/tree/main/window/OndeviceAI2/ip_repo/i2c_1.0)<br>[MicroBlaze·Timer·I2C 시스템](https://github.com/Min-star-prog/ondeviceai/tree/main/window/OndeviceAI2/260628_microblaze_timer_i2c) |
 | [RV32I Single-Cycle CPU](projects/rv32i-cpu.md) | [RV32I RTL·Testbench](https://github.com/Min-star-prog/ondeviceai/tree/main/linux/20260527_RV32I_singlecycle_source_code) |
 | [UART 시계·센서 통합 시스템](projects/uart-sensor.md) | [센서·UART 통합 RTL](https://github.com/Min-star-prog/ondeviceai/tree/main/window/OndeviceAI2/fifo_sensor/fifo_sensor.srcs/sources_1/new) |
+| [FPGA Stopwatch·Watch 통합 시간 시스템](projects/stopwatch-watch.md) | [Watch RTL·Testbench·Basys3 제약 파일](sources/stopwatch-watch) |
 
 ## SystemVerilog·UVM 검증
 
@@ -36,4 +37,5 @@
 4. [통합 파이프라인](https://github.com/Min-star-prog/ondeviceai/blob/main/robot_arm/robot_arm/src/app/main.c)
 
 [← 포트폴리오 첫 화면](README.md)
+
 

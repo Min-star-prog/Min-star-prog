@@ -6,6 +6,7 @@
 
 | 프로젝트 | 기술 분야 |
 | --- | --- |
+| [FPGA Stopwatch·Watch 통합 시간 시스템](stopwatch-watch.md) | RTL·FPGA 시스템 설계 |
 | [AXI4-Lite 주변장치·MicroBlaze](axi-microblaze.md) | RTL·FPGA 시스템 설계 |
 | [RV32I Single-Cycle CPU](rv32i-cpu.md) | RTL·FPGA 시스템 설계 |
 | [UART·FIFO·ASCII Decoder 검증](uart-fifo-sv.md) | SystemVerilog·UVM 검증 |
@@ -39,4 +40,5 @@
 | 프로젝트 | 기술 분야 |
 | --- | --- |
 | [산화물 TFT 전기적 특성 및 신뢰성 평가](adrc-tft.md) | 소자 특성·신뢰성 평가 |
+
 
